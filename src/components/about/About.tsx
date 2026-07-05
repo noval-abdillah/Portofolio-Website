@@ -101,6 +101,23 @@ export default function About() {
                       <CheckIcon className="w-5 h-5" />
                     </div>
                     <div>
+                      <span className="block text-white font-medium">{t.about.dtaKomdigi}</span>
+                      <span className="text-zinc-400 text-sm">Digital Talent Academy (KOMDIGI)</span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedCert({ title: t.about.dtaKomdigi, img: '/cert-dta-komdigi.png' })}
+                    className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
+                  >
+                    {t.about.previewCert}
+                  </button>
+                </li>
+                <li className="flex items-start justify-between gap-3">
+                  <div className="flex gap-3 items-start">
+                    <div className="mt-1 text-green-500">
+                      <CheckIcon className="w-5 h-5" />
+                    </div>
+                    <div>
                       <span className="block text-white font-medium">{t.about.googleAi}</span>
                       <span className="text-zinc-400 text-sm">Google (via Coursera)</span>
                     </div>
