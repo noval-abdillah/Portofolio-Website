@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">{t.footer.quickLinks}</h4>
+            <p className="text-white font-semibold mb-4">{t.footer.quickLinks}</p>
             <ul className="space-y-2">
               <li>
                 <Link href="/" className="text-zinc-300 hover:text-green-500 transition-colors">
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">{t.footer.connect}</h4>
+            <p className="text-white font-semibold mb-4">{t.footer.connect}</p>
             <div className="flex space-x-4">
               <a
                 href="https://github.com/noval-abdillah"

@@ -27,8 +27,8 @@ export default function ProjectsClient({ projects, limit }: { projects: Project[
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {displayProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
         )}
@@ -37,7 +37,7 @@ export default function ProjectsClient({ projects, limit }: { projects: Project[
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { t } = useLanguage();
   
   return (
@@ -48,7 +48,7 @@ function ProjectCard({ project }: { project: Project }) {
             src={project.image_url}
             alt={project.title}
             fill
-            priority
+            priority={index === 0}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />

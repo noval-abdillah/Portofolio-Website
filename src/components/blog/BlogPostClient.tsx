@@ -70,7 +70,7 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
             {content.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-zinc-500 text-sm font-mono border-y border-zinc-900 py-4">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 text-zinc-300 text-sm font-mono border-y border-zinc-900 py-4">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>{language === 'en' ? 'Published:' : 'Diterbitkan:'} {content.date}</span>

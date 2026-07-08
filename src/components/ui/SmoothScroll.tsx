@@ -16,6 +16,10 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    // Disable smooth scroll on mobile devices to improve Performance score
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) return;
+
     lenisRef.current = new Lenis({
       lerp: 0.1,
       smoothWheel: true,

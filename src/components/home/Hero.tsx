@@ -128,7 +128,7 @@ export default function Hero() {
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/projects"
-            className="px-8 py-4 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
+            className="px-8 py-4 bg-green-600 hover:bg-green-500 text-zinc-950 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
           >
             {t.hero.viewProjects}
           </Link>

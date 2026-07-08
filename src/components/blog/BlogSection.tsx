@@ -72,7 +72,7 @@ export default function BlogSection() {
                   <span className={`px-2.5 py-0.5 text-xs font-mono font-medium rounded-full border ${getCategoryStyles(index)}`}>
                     {getCategoryName(index)}
                   </span>
-                  <div className="flex items-center gap-1.5 text-zinc-500 text-xs font-mono">
+                  <div className="flex items-center gap-1.5 text-zinc-300 text-xs font-mono">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{post.date}</span>
                   </div>
@@ -93,7 +93,7 @@ export default function BlogSection() {
 
               {/* Bottom footer bar */}
               <div className="flex items-center justify-between px-6 pb-6 pt-4 border-t border-zinc-800/50 mt-auto">
-                <div className="flex items-center gap-1.5 text-zinc-500 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-zinc-300 text-xs font-mono">
                   <Clock className="w-3.5 h-3.5" />
                   <span>{post.time}</span>
                 </div>
