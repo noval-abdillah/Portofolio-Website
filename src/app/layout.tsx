@@ -18,11 +18,11 @@ const mono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://noval-portfolio-gold.vercel.app'),
+  metadataBase: new URL('https://novalabdillah.online'),
   alternates: {
     canonical: '/',
   },
-  title: 'Noval Abdillah | Fullstack Developer & Ai Coder',
+  title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
   description: 'Portfolio of Noval Abdillah, a Full Stack Developer specializing in building production-grade SaaS applications with Next.js, Node.js, and PostgreSQL. Expert in AI-assisted development using GitHub Copilot.',
   keywords: [
     'Full Stack Developer',
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://noval-portfolio-gold.vercel.app',
-    title: 'Noval Abdillah | Fullstack Developer & Ai Coder',
+    url: 'https://novalabdillah.online',
+    title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
     description: 'Building production-grade SaaS applications with modern technologies',
     siteName: 'Noval Abdillah Portfolio',
     images: [
       {
-        url: 'https://noval-portfolio-gold.vercel.app/og-image.jpg',
+        url: 'https://novalabdillah.online/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Noval Abdillah Portfolio',
@@ -70,12 +70,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Noval Abdillah | Fullstack Developer & Ai Coder',
+    title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
     description: 'Building production-grade SaaS applications with modern technologies',
     creator: '@novalabdillah',
   },
   verification: {
-    google: 'google8006ea16ce0826eb',
+    google: 'ZxlIdxX1WALhtH4i3MVUI8BKJWsfpxZkIPCzuqbjur8',
     yandex: 'your-yandex-verification-code',
   },
 };
@@ -92,10 +92,10 @@ export default function RootLayout({
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://noval-portfolio-gold.vercel.app/#organization',
+        '@id': 'https://novalabdillah.online/#organization',
         'name': 'Noval Abdillah',
-        'url': 'https://noval-portfolio-gold.vercel.app',
-        'logo': 'https://noval-portfolio-gold.vercel.app/favicon.ico',
+        'url': 'https://novalabdillah.online',
+        'logo': 'https://novalabdillah.online/favicon.ico',
         'sameAs': [
           'https://github.com/noval-abdillah',
           'https://www.linkedin.com/in/noval-abdillah-415589316/'
@@ -103,11 +103,11 @@ export default function RootLayout({
       },
       {
         '@type': 'Person',
-        '@id': 'https://noval-portfolio-gold.vercel.app/#person',
+        '@id': 'https://novalabdillah.online/#person',
         'name': 'Noval Abdillah',
         'jobTitle': 'Full Stack Developer & AI Engineer',
-        'url': 'https://noval-portfolio-gold.vercel.app',
-        'image': 'https://noval-portfolio-gold.vercel.app/images/Profil.jpeg',
+        'url': 'https://novalabdillah.online',
+        'image': 'https://novalabdillah.online/images/Profil.jpeg',
         'sameAs': [
           'https://github.com/noval-abdillah',
           'https://www.linkedin.com/in/noval-abdillah-415589316/'

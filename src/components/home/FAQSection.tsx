@@ -40,7 +40,7 @@ export default function FAQSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {faqData.title}
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-base md:text-lg">
+          <p className="text-zinc-300 max-w-2xl mx-auto text-base md:text-lg">
             {faqData.subtitle}
           </p>
         </div>
@@ -56,6 +56,9 @@ export default function FAQSection() {
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 text-white font-semibold text-lg hover:text-green-400 transition-colors"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                 >
                   <span>{item.q}</span>
                   <span className="text-2xl font-mono text-green-500 transition-transform duration-300">
@@ -64,11 +67,14 @@ export default function FAQSection() {
                 </button>
 
                 <div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
                   className={`transition-all duration-300 overflow-hidden ${
                     isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <p className="px-6 pb-6 text-zinc-400 leading-relaxed text-base">
+                  <p className="px-6 pb-6 text-zinc-300 leading-relaxed text-base">
                     {item.a}
                   </p>
                 </div>

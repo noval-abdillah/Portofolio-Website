@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://noval-portfolio-gold.vercel.app';
+  const baseUrl = 'https://novalabdillah.online';
 
   const staticRoutes = [
     '',

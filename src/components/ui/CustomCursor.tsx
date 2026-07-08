@@ -15,7 +15,12 @@ export default function CustomCursor({ children }: CustomCursorProps) {
   useEffect(() => {
     // Hanya aktif di perangkat dengan mouse presisi (bukan touch/mobile/Android)
     const mq = window.matchMedia('(pointer: fine)');
-    setIsDesktop(mq.matches);
+    
+    // Gunakan callback atau jalankan di frame berikutnya agar tidak menabrak status render sinkron
+    const updateMedia = () => {
+      setIsDesktop(mq.matches);
+    };
+    updateMedia();
 
     // Listen untuk perubahan (misal colok mouse ke tablet)
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
@@ -30,7 +35,12 @@ export default function CustomCursor({ children }: CustomCursorProps) {
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
+    let active = false;
     const onMove = (e: MouseEvent) => {
+      if (!active) {
+        gsap.set([dot, ring], { opacity: 1 });
+        active = true;
+      }
       gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' });
       gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.35, ease: 'power3.out' });
     };
@@ -45,16 +55,20 @@ export default function CustomCursor({ children }: CustomCursorProps) {
       gsap.to(ring, { scale: 1, borderColor: 'rgba(34,197,94,0.5)', duration: 0.25 });
     };
 
-    document.addEventListener('mousemove', onMove);
+    // Hide cursor initially until first move
+    gsap.set([dot, ring], { opacity: 0 });
+
+    // Use passive listener where possible or normal mousemove
+    window.addEventListener('mousemove', onMove, { passive: true });
 
     const interactives = document.querySelectorAll('a, button, input, textarea, [data-cursor]');
     interactives.forEach((el) => {
-      el.addEventListener('mouseenter', onEnter);
-      el.addEventListener('mouseleave', onLeave);
+      el.addEventListener('mouseenter', onEnter, { passive: true });
+      el.addEventListener('mouseleave', onLeave, { passive: true });
     });
 
     return () => {
-      document.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mousemove', onMove);
       interactives.forEach((el) => {
         el.removeEventListener('mouseenter', onEnter);
         el.removeEventListener('mouseleave', onLeave);

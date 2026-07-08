@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold font-mono text-green-500 hover:text-green-400 transition-colors">
-            NOVAL<span className="text-zinc-500">.</span>
+            NOVAL<span className="text-zinc-400">.</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -77,7 +77,7 @@ export default function Navbar() {
                   className={`text-sm font-mono transition-colors uppercase tracking-wider ${
                     pathname === link.href 
                       ? 'text-green-500' 
-                      : 'text-zinc-400 hover:text-green-500'
+                      : 'text-zinc-300 hover:text-green-500'
                   }`}
                 >
                   {link.name}
@@ -98,7 +98,7 @@ export default function Navbar() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-green-500 transition-colors"
                 aria-label="GitHub"
               >
                 <GitHubIcon className="w-5 h-5" />
@@ -107,42 +107,43 @@ export default function Navbar() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-green-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="w-5 h-5" />
               </a>
               <a
                 href="mailto:noval.abdillah223@gmail.com"
-                className="text-zinc-400 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-green-500 transition-colors"
                 aria-label="Email"
               >
                 <EmailIcon className="w-5 h-5" />
               </a>
               
-              {/* Language Switcher */}
-              <div className="ml-4 pl-4 border-l border-zinc-800 flex items-center space-x-2">
-                <button 
-                  onClick={() => setLanguage('en')}
-                  className={`text-xs font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-500 hover:text-zinc-300'}`}
-                >
-                  EN
-                </button>
-                <span className="text-zinc-700">/</span>
-                <button 
-                  onClick={() => setLanguage('id')}
-                  className={`text-xs font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-500 hover:text-zinc-300'}`}
-                >
-                  ID
-                </button>
-              </div>
+            {/* Language Switcher */}
+            <div className="ml-4 pl-4 border-l border-zinc-800 flex items-center space-x-2">
+              <button 
+                onClick={() => setLanguage('en')}
+                className={`text-xs font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-400 hover:text-zinc-200'}`}
+                aria-label="Switch language to English"
+              >
+                EN
+              </button>
+              <span className="text-zinc-600">/</span>
+              <button 
+                onClick={() => setLanguage('id')}
+                className={`text-xs font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-400 hover:text-zinc-200'}`}
+                aria-label="Ganti bahasa ke Indonesia"
+              >
+                ID
+              </button>
+            </div>
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-zinc-400 hover:text-green-500 transition-colors"
+            className="md:hidden text-zinc-300 hover:text-green-500 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -162,7 +163,7 @@ export default function Navbar() {
                 className={`block text-sm font-mono transition-colors uppercase tracking-wider ${
                   pathname === link.href 
                     ? 'text-green-500' 
-                    : 'text-zinc-400 hover:text-green-500'
+                    : 'text-zinc-300 hover:text-green-500'
                 }`}
               >
                 {link.name}
@@ -174,7 +175,7 @@ export default function Navbar() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-zinc-400 hover:text-green-500 transition-colors"
+                className="flex items-center space-x-2 text-zinc-300 hover:text-green-500 transition-colors"
               >
                 <GitHubIcon className="w-5 h-5" />
                 <span>GitHub</span>
@@ -183,7 +184,7 @@ export default function Navbar() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-zinc-400 hover:text-green-500 transition-colors"
+                className="flex items-center space-x-2 text-zinc-300 hover:text-green-500 transition-colors"
               >
                 <LinkedInIcon className="w-5 h-5" />
                 <span>LinkedIn</span>
@@ -191,17 +192,19 @@ export default function Navbar() {
               
               {/* Mobile Language Switcher */}
               <div className="flex items-center space-x-4 pt-2">
-                <span className="text-sm font-mono text-zinc-400">Language:</span>
+                <span className="text-sm font-mono text-zinc-300">Language:</span>
                 <button 
                   onClick={() => setLanguage('en')}
-                  className={`text-sm font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-500'}`}
+                  className={`text-sm font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-400'}`}
+                  aria-label="Switch mobile language to English"
                 >
                   EN
                 </button>
                 <span className="text-zinc-700">|</span>
                 <button 
                   onClick={() => setLanguage('id')}
-                  className={`text-sm font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-500'}`}
+                  className={`text-sm font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-400'}`}
+                  aria-label="Ganti bahasa mobile ke Indonesia"
                 >
                   ID
                 </button>

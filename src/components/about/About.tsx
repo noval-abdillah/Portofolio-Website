@@ -102,12 +102,13 @@ export default function About() {
                     </div>
                     <div>
                       <span className="block text-white font-medium">{t.about.dtaKomdigi}</span>
-                      <span className="text-zinc-400 text-sm">Digital Talent Academy (KOMDIGI)</span>
+                      <span className="text-zinc-300 text-sm">Digital Talent Academy (KOMDIGI)</span>
                     </div>
                   </div>
                   <button 
                     onClick={() => setSelectedCert({ title: t.about.dtaKomdigi, img: '/cert-dta-komdigi.png' })}
                     className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
+                    aria-label={`Preview ${t.about.dtaKomdigi} certificate`}
                   >
                     {t.about.previewCert}
                   </button>
@@ -119,12 +120,13 @@ export default function About() {
                     </div>
                     <div>
                       <span className="block text-white font-medium">{t.about.googleAi}</span>
-                      <span className="text-zinc-400 text-sm">Google (via Coursera)</span>
+                      <span className="text-zinc-300 text-sm">Google (via Coursera)</span>
                     </div>
                   </div>
                   <button 
                     onClick={() => setSelectedCert({ title: t.about.googleAi, img: '/cert-google-ai.png' })}
                     className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
+                    aria-label={`Preview ${t.about.googleAi} certificate`}
                   >
                     {t.about.previewCert}
                   </button>
@@ -136,12 +138,13 @@ export default function About() {
                     </div>
                     <div>
                       <span className="block text-white font-medium">{t.about.aiAssisted}</span>
-                      <span className="text-zinc-400 text-sm">GitHub Copilot (Microsoft Applied Skills)</span>
+                      <span className="text-zinc-300 text-sm">GitHub Copilot (Microsoft Applied Skills)</span>
                     </div>
                   </div>
                   <button 
                     onClick={() => setSelectedCert({ title: t.about.aiAssisted, img: '/cert-github.png' })}
                     className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
+                    aria-label={`Preview ${t.about.aiAssisted} certificate`}
                   >
                     {t.about.previewCert}
                   </button>
@@ -153,12 +156,13 @@ export default function About() {
                     </div>
                     <div>
                       <span className="block text-white font-medium">{t.about.problemSolving}</span>
-                      <span className="text-zinc-400 text-sm">HackerRank</span>
+                      <span className="text-zinc-300 text-sm">HackerRank</span>
                     </div>
                   </div>
                   <button 
                     onClick={() => setSelectedCert({ title: t.about.problemSolving, img: '/cert-hackerrank.png' })}
                     className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
+                    aria-label={`Preview ${t.about.problemSolving} certificate`}
                   >
                     {t.about.previewCert}
                   </button>

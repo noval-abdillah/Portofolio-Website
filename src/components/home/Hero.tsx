@@ -10,7 +10,6 @@ import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Dynamically import Canvas3D to avoid SSR issues
 const Canvas3D = dynamic(() => import('@/components/canvas/Canvas3D'), {
   ssr: false,
   loading: () => (
@@ -80,11 +79,30 @@ export default function Hero() {
     return () => ctx.revert(); // Cleanup animation state on unmount
   }, []);
 
+  const [loadCanvas, setLoadCanvas] = useState(false);
+
+  useEffect(() => {
+    // Delay load Canvas3D to minimize initial blocking thread during first paint
+    const handleIdle = () => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => setLoadCanvas(true));
+      } else {
+        setTimeout(() => setLoadCanvas(true), 1500);
+      }
+    };
+    if (document.readyState === 'complete') {
+      handleIdle();
+    } else {
+      window.addEventListener('load', handleIdle);
+      return () => window.removeEventListener('load', handleIdle);
+    }
+  }, []);
+
   return (
     <section id="home" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Canvas3D />
+        {loadCanvas && <Canvas3D />}
       </div>
 
       {/* Gradient overlay */}

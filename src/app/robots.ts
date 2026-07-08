@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/admin/dashboard', '/api/'],
       },
     ],
-    sitemap: 'https://noval-portfolio-gold.vercel.app/sitemap.xml',
+    sitemap: 'https://novalabdillah.online/sitemap.xml',
   };
 }
