@@ -26,7 +26,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     });
     
     // Expose lenis globally for page transitions
-    (window as any).lenis = lenisRef.current;
+    (window as unknown as { lenis: Lenis }).lenis = lenisRef.current;
 
     // Sync Lenis with GSAP ScrollTrigger
     lenisRef.current.on('scroll', () => {

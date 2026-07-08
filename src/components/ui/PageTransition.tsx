@@ -27,7 +27,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
     if (!overlay || !content) return;
 
     // Reset scroll position immediately
-    const lenis = (window as any).lenis;
+    const lenis = (window as unknown as { lenis: { scrollTo: (x: number, options: { immediate: boolean }) => void } }).lenis;
     if (lenis && typeof lenis.scrollTo === 'function') {
       lenis.scrollTo(0, { immediate: true });
     } else {
