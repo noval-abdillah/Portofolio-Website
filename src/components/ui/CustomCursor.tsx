@@ -36,13 +36,19 @@ export default function CustomCursor({ children }: CustomCursorProps) {
     if (!dot || !ring) return;
 
     let active = false;
+    let frameId: number | null = null;
+
     const onMove = (e: MouseEvent) => {
-      if (!active) {
-        gsap.set([dot, ring], { opacity: 1 });
-        active = true;
-      }
-      gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' });
-      gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.35, ease: 'power3.out' });
+      if (frameId) cancelAnimationFrame(frameId);
+
+      frameId = requestAnimationFrame(() => {
+        if (!active) {
+          gsap.set([dot, ring], { opacity: 1 });
+          active = true;
+        }
+        gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1, ease: 'power2.out' });
+        gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.35, ease: 'power3.out' });
+      });
     };
 
     const onEnter = () => {
@@ -69,6 +75,7 @@ export default function CustomCursor({ children }: CustomCursorProps) {
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      if (frameId) cancelAnimationFrame(frameId);
       interactives.forEach((el) => {
         el.removeEventListener('mouseenter', onEnter);
         el.removeEventListener('mouseleave', onLeave);

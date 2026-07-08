@@ -1,14 +1,44 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useLanguage } from '@/context/LanguageContext';
+import dynamic from 'next/dynamic';
+
+const Profile3D = dynamic(() => import('@/components/canvas/Profile3D'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full rounded-2xl overflow-hidden bg-zinc-800 flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-green-500/30 border-t-green-500 rounded-full animate-spin" />
+    </div>
+  ),
+});
 
 export default function ProfileImage() {
   const cardRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const [load3D, setLoad3D] = useState(false);
+
+  // Load 3D lanyard component only when user scrolls to this section
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoad3D(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Efek interaktif 3D saat kursor digerakkan
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -67,35 +97,39 @@ export default function ProfileImage() {
         className="relative w-full h-full rounded-[2rem] border border-zinc-700/50 bg-zinc-900/40 p-3 lg:p-4 backdrop-blur-md shadow-2xl transition-colors duration-500 group-hover:border-green-500/50"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {/* Pembungkus Gambar dengan efek Depth (Z-axis) */}
-        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-800" style={{ transform: 'translateZ(40px)' }}>
-          <Image 
-            src="/images/Profil.jpeg"
-            alt="Profil Noval Abdillah"
-            fill
-            priority
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          
-          {/* Overlay Gradasi Hitam di Bawah */}
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90" />
-          
-          {/* Konten Badge di dalam gambar */}
-          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between" style={{ transform: 'translateZ(20px)' }}>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">Noval Abdillah</h3>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-green-400 font-medium text-xs">{t.about.profileBadge}</span>
+        {load3D ? (
+          <Profile3D />
+        ) : (
+          /* Pembungkus Gambar dengan efek Depth (Z-axis) */
+          <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-800" style={{ transform: 'translateZ(40px)' }}>
+            <Image 
+              src="/images/Profil.jpeg"
+              alt="Profil Noval Abdillah"
+              fill
+              priority
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            
+            {/* Overlay Gradasi Hitam di Bawah */}
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-90" />
+            
+            {/* Konten Badge di dalam gambar */}
+            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between" style={{ transform: 'translateZ(20px)' }}>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">Noval Abdillah</h3>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-green-400 font-medium text-xs">{t.about.profileBadge}</span>
+                </div>
+              </div>
+              
+              <div className="h-12 w-12 rounded-xl bg-zinc-900/80 flex items-center justify-center border border-zinc-700 backdrop-blur-md shadow-xl rotate-3 group-hover:rotate-12 transition-transform duration-500">
+                <span className="text-green-500 font-black text-lg">NA</span>
               </div>
             </div>
-            
-            <div className="h-12 w-12 rounded-xl bg-zinc-900/80 flex items-center justify-center border border-zinc-700 backdrop-blur-md shadow-xl rotate-3 group-hover:rotate-12 transition-transform duration-500">
-              <span className="text-green-500 font-black text-lg">NA</span>
-            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

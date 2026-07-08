@@ -4,9 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import dynamic from 'next/dynamic';
-import { GitHubIcon, LinkedInIcon, EmailIcon, CheckIcon } from '@/components/ui';
+import { CheckIcon } from '@/components/ui';
 
-import { ProfileImage } from '@/components/about';
+const ProfileImage = dynamic(() => import('@/components/about/ProfileImage'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full aspect-[4/5] max-w-md mx-auto bg-zinc-900/40 rounded-[2rem] border border-zinc-800 animate-pulse flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-green-500/30 border-t-green-500 rounded-full animate-spin" />
+    </div>
+  ),
+});
+
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function About() {
