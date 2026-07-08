@@ -82,12 +82,15 @@ export default function Hero() {
   const [loadCanvas, setLoadCanvas] = useState(false);
 
   useEffect(() => {
-    // Delay load Canvas3D to minimize initial blocking thread during first paint
+    // Hanya load 3D Canvas di desktop (pointer: fine) dan tunda hingga halaman ter-load sempurna
+    const mq = window.matchMedia('(pointer: fine)');
+    if (!mq.matches) return; // Skip 3D di mobile sepenuhnya untuk skor 90-100
+
     const handleIdle = () => {
       if ('requestIdleCallback' in window) {
         window.requestIdleCallback(() => setLoadCanvas(true));
       } else {
-        setTimeout(() => setLoadCanvas(true), 1500);
+        setTimeout(() => setLoadCanvas(true), 2000);
       }
     };
     if (document.readyState === 'complete') {

@@ -91,12 +91,12 @@ function AnimatedTechShape() {
   );
 }
 
-const PARTICLE_COUNT = 1500;
+const PARTICLE_COUNT = 400; // Dikurangi dari 1500 agar CPU overhead rendah
 const PARTICLE_POSITIONS = new Float32Array(PARTICLE_COUNT * 3);
 for (let i = 0; i < PARTICLE_COUNT; i++) {
-  PARTICLE_POSITIONS[i * 3] = (Math.random() - 0.5) * 25;
-  PARTICLE_POSITIONS[i * 3 + 1] = (Math.random() - 0.5) * 25;
-  PARTICLE_POSITIONS[i * 3 + 2] = (Math.random() - 0.5) * 25;
+  PARTICLE_POSITIONS[i * 3] = (Math.random() - 0.5) * 20;
+  PARTICLE_POSITIONS[i * 3 + 1] = (Math.random() - 0.5) * 20;
+  PARTICLE_POSITIONS[i * 3 + 2] = (Math.random() - 0.5) * 20;
 }
 
 // Particle system
@@ -138,7 +138,7 @@ export default function Canvas3D() {
       <Stars
         radius={100}
         depth={50}
-        count={5000}
+        count={800} // Dikurangi dari 5000 agar render loop sangat ringan
         factor={4}
         saturation={1}
         fade
