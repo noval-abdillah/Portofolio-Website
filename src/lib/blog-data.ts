@@ -127,6 +127,103 @@ export const blogPosts: BlogPost[] = [
     }
   },
   {
+    slug: 'automating-workflows-with-n8n',
+    en: {
+      title: 'Automating Workflows with n8n: Cut Manual Work by 60%',
+      excerpt: 'A practical guide to building self-running automation systems with n8n, integrating APIs and AI to eliminate repetitive tasks.',
+      category: 'AI & Automation',
+      date: 'Jun 18, 2026',
+      time: '10 min read',
+      image: '/blog/auth-supabase.svg',
+      contentHtml: `
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          Repetitive manual work is the silent killer of productivity. During my work at Perum BULOG, I validated operational data daily with over 98% accuracy — a process that was largely manual and time-consuming. That experience drove me to master n8n, a powerful open-source workflow automation platform that connects APIs, AI, and business tools into self-running pipelines.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">1. What is n8n and Why Use It?</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          n8n is a node-based workflow automation tool that lets you visually connect services and APIs without heavy custom code. Unlike Zapier, n8n is self-hostable, giving you full control over your data and workflows. I use it to build pipelines that run 24/7, autonomously handling tasks that would otherwise require manual intervention.
+        </p>
+        
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+          // Example: n8n workflow structure<br/>
+          Trigger (Webhook/Schedule)<br/>
+          &nbsp;&nbsp;→ HTTP Request (Fetch data from API)<br/>
+          &nbsp;&nbsp;→ AI Node (Process/classify data)<br/>
+          &nbsp;&nbsp;→ Database (Store results)<br/>
+          &nbsp;&nbsp;→ Notification (Slack/Email/WhatsApp)
+        </div>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">2. Real Use Case: Data Validation Automation</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          At BULOG, data discrepancies were manually identified and escalated — a slow, error-prone process. By automating the validation pipeline with n8n, I was able to reduce data input errors by 30% and ensure data was always up-to-date before reporting deadlines. The workflow automatically flags anomalies, routes them to the right person, and logs everything for audit trails.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">3. Integrating AI into n8n Workflows</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          n8n's AI nodes allow you to plug in models like GPT or Claude directly into your workflow. I use this to classify incoming data, generate summaries, draft responses, and make routing decisions — all automatically. The result is a system that handles 60% of what used to be manual work, freeing the team for higher-value decisions.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">4. Connecting to Web Applications</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          n8n pairs perfectly with full-stack web apps. I build Next.js dashboards that expose webhook endpoints consumed by n8n workflows. When a user submits a form, n8n catches the event, processes it through AI, writes to Supabase, and sends a WhatsApp confirmation — all in seconds with zero manual steps.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">5. Getting Started</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          The best way to start is to identify one repetitive task your team does every week. Map its inputs and outputs, then replicate it in n8n using HTTP Request nodes and a trigger. Once you see it run autonomously for the first time, you'll understand why automation is not optional — it's a competitive advantage.
+        </p>
+      `
+    },
+    id: {
+      title: 'Otomasi Workflow dengan n8n: Pangkas Kerja Manual hingga 60%',
+      excerpt: 'Panduan praktis membangun sistem otomasi mandiri dengan n8n, mengintegrasikan API dan AI untuk menghilangkan pekerjaan berulang secara permanen.',
+      category: 'AI & Otomasi',
+      date: '18 Jun 2026',
+      time: '10 mnt baca',
+      image: '/blog/auth-supabase.svg',
+      contentHtml: `
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          Pekerjaan manual berulang adalah pembunuh produktivitas yang senyap. Saat bekerja di Perum BULOG, saya memvalidasi data operasional setiap hari dengan akurasi di atas 98% — proses yang sebagian besar dilakukan secara manual dan memakan waktu. Pengalaman itu mendorong saya untuk menguasai n8n, platform otomasi workflow open-source yang menghubungkan API, AI, dan tools bisnis menjadi pipeline yang berjalan sendiri.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">1. Apa itu n8n dan Mengapa Menggunakannya?</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          n8n adalah tool otomasi workflow berbasis node yang memungkinkan Anda menghubungkan layanan dan API secara visual tanpa banyak kode kustom. Berbeda dari Zapier, n8n bisa di-self-host sehingga Anda punya kontrol penuh atas data dan workflow. Saya menggunakannya untuk membangun pipeline yang berjalan 24/7, menangani tugas yang sebelumnya membutuhkan intervensi manual.
+        </p>
+        
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+          // Contoh: struktur workflow n8n<br/>
+          Trigger (Webhook/Jadwal)<br/>
+          &nbsp;&nbsp;→ HTTP Request (Ambil data dari API)<br/>
+          &nbsp;&nbsp;→ AI Node (Proses/klasifikasi data)<br/>
+          &nbsp;&nbsp;→ Database (Simpan hasil)<br/>
+          &nbsp;&nbsp;→ Notifikasi (Slack/Email/WhatsApp)
+        </div>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">2. Studi Kasus: Otomasi Validasi Data</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          Di BULOG, ketidaksesuaian data diidentifikasi dan dieskalasi secara manual — proses lambat dan rawan kesalahan. Dengan mengotomatisasi pipeline validasi menggunakan n8n, saya berhasil menurunkan tingkat kesalahan input hingga 30% dan memastikan data selalu terbarui sebelum tenggat pelaporan. Workflow secara otomatis menandai anomali, mengarahkannya ke pihak yang tepat, dan mencatat segalanya untuk jejak audit.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">3. Mengintegrasikan AI ke Workflow n8n</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          Node AI n8n memungkinkan Anda menghubungkan model seperti GPT atau Claude langsung ke workflow. Saya menggunakannya untuk mengklasifikasi data masuk, menghasilkan ringkasan, membuat draf respons, dan membuat keputusan routing — semuanya otomatis. Hasilnya adalah sistem yang menangani 60% pekerjaan yang dulunya manual, membebaskan tim untuk keputusan bernilai lebih tinggi.
+        </p>
+
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">4. Menghubungkan ke Aplikasi Web</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          n8n sangat cocok dipasangkan dengan aplikasi web full-stack. Saya membangun dashboard Next.js yang mengekspos endpoint webhook yang dikonsumsi oleh workflow n8n. Ketika pengguna mengirim form, n8n menangkap event tersebut, memprosesnya melalui AI, menulis ke Supabase, dan mengirim konfirmasi WhatsApp — semua dalam hitungan detik tanpa langkah manual.
+        </p>
+        
+        <h2 class="text-2xl font-bold text-white mt-8 mb-4 font-mono">5. Memulai</h2>
+        <p class="text-zinc-300 leading-relaxed mb-6">
+          Cara terbaik untuk mulai adalah mengidentifikasi satu tugas berulang yang dilakukan tim Anda setiap minggu. Petakan input dan outputnya, lalu replikasi di n8n menggunakan node HTTP Request dan trigger. Begitu Anda melihatnya berjalan mandiri untuk pertama kali, Anda akan mengerti mengapa otomasi bukan pilihan — melainkan keunggulan kompetitif.
+        </p>
+      `
+    }
+  },
+  {
     slug: 'mastering-nextjs-16-and-supabase-authentication',
     en: {
       title: 'Mastering Next.js 16 and Supabase Authentication',

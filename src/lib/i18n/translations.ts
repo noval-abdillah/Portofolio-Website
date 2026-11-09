@@ -10,35 +10,35 @@ export const translations = {
       blog: 'Blog',
     },
     hero: {
-      role: 'FULLSTACK DEVELOPER',
-      subtitle: 'Specializing in AI-Assisted Development, crafting production-grade web applications rapidly with Next.js, LLMs, and modern UI engineering.',
+      role: 'FULLSTACK DEVELOPER & AI AUTOMATION',
+      subtitle: 'Building production-grade web applications and automating workflows with AI & n8n. Cutting repetitive manual work by up to 60% through API integrations and intelligent automation systems.',
       viewProjects: 'View Projects',
       downloadResume: 'Download Resume',
     },
     about: {
       title: 'About Me',
-      role: 'Fullstack Developer',
-      p1: 'I am a Fullstack Developer who leverages AI as a collaborative programming partner. Because I have a strong foundation in software engineering fundamentals, I can effectively direct AI tools and prevent them from hallucinating or losing architectural direction.',
-      p2: 'My core stack includes Next.js, Node.js, and PostgreSQL. I combine modern development frameworks with AI-assisted coding to rapidly build robust, scalable, and production-ready applications without compromising code quality.',
+      role: 'Full-Stack Developer | AI & n8n Workflow Automation',
+      p1: 'I am a certified Full-Stack Developer with hands-on experience building web applications (front-end and back-end) and automating work processes using AI-powered tools and n8n. I specialize in integrating APIs and various tools to eliminate repetitive manual tasks by up to 60%, delivering self-running, stable systems.',
+      p2: 'My core stack includes Next.js, Node.js, PostgreSQL, and Supabase. I combine modern development frameworks with AI-assisted coding and n8n workflow automation to rapidly build robust, scalable, and production-ready applications. Open to full-time positions, freelance projects, and collaborations in web development and AI automation.',
       techStack: 'Technical Stack',
       certifications: 'Certifications',
-      aiAssisted: 'AI-Assisted Development',
-      problemSolving: 'Problem Solving Intermediate',
+      aiAssisted: 'Accelerate AI-Assisted Development with GitHub Copilot',
+      problemSolving: 'Problem Solving (Intermediate)',
       googleAi: 'Google AI Professional Certificate',
-      dtaKomdigi: 'Front-End & Back-End Development - Nasional',
+      dtaKomdigi: 'Full Stack Developer - Digital Talent Academy',
       profileBadge: 'Fullstack Dev',
       officeTools: 'Office Tools Proficiency',
       previewCert: 'Preview',
     },
     projects: {
       title: 'Featured Projects',
-      subtitle: 'A selection of my recent work in full-stack development, AI integration, and modern web applications.',
+      subtitle: 'A selection of my recent work in full-stack development, AI automation with n8n, and modern web applications.',
       viewCode: 'Source Code',
       viewLive: 'Live Demo',
     },
     contact: {
       title: 'Get In Touch',
-      subtitle: 'Have a project in mind or want to collaborate? Feel free to reach out. I am currently available for new opportunities.',
+      subtitle: 'Have a project in mind or want to collaborate? Feel free to reach out. I am currently available for full-time positions, freelance projects, and AI automation collaborations.',
       nameLabel: 'Name',
       namePlaceholder: 'John Doe',
       emailLabel: 'Email',
@@ -54,10 +54,10 @@ export const translations = {
     },
     blog: {
       title: 'Latest Insights',
-      subtitle: 'Sharing my thoughts on AI-assisted engineering, modern fullstack development, and interactive UI/UX design.',
+      subtitle: 'Sharing thoughts on AI automation with n8n, full-stack development, and workflow engineering.',
       readMore: 'Read Article',
       categories: {
-        ai: 'AI & Coding',
+        ai: 'AI & Automation',
         fullstack: 'Fullstack',
         creative: 'Creative Dev',
       },
@@ -69,8 +69,8 @@ export const translations = {
           time: '5 min read',
         },
         {
-          title: 'Mastering Next.js 16 and Supabase Authentication',
-          excerpt: 'A complete guide to building secure JWT and RBAC authentication flows using Supabase SSR in Next.js App Router.',
+          title: 'Automating Workflows with n8n: Cut Manual Work by 60%',
+          excerpt: 'A practical guide to building self-running automation systems with n8n, integrating APIs and AI to eliminate repetitive tasks.',
           date: 'Jun 18, 2026',
           time: '8 min read',
         },
@@ -83,7 +83,7 @@ export const translations = {
       ],
     },
     footer: {
-      description: 'Full Stack Developer focused on building high-quality, production-grade applications with modern technologies.',
+      description: 'Full-Stack Developer & AI Automation specialist. Building production-grade web apps and n8n automation workflows that cut manual work by up to 60%.',
       quickLinks: 'Quick Links',
       connect: 'Connect',
       rights: 'All rights reserved.',
@@ -94,27 +94,27 @@ export const translations = {
       questions: [
         {
           q: 'What services does Noval Abdillah offer?',
-          a: 'Noval Abdillah offers full-stack web development, custom SaaS engineering, MVP creation, and AI integration services. This includes building frontends with Next.js, robust backends with Node.js/PostgreSQL, authentication architectures, and integrating LLMs to build intelligent applications.'
+          a: 'Noval Abdillah offers full-stack web development, AI workflow automation with n8n, MVP creation, and API integration services. This includes building frontends with Next.js, robust backends with Node.js/PostgreSQL, and automating repetitive business processes using n8n and AI tools — reducing manual work by up to 60%.'
         },
         {
-          q: 'How does AI-assisted development benefit the client?',
-          a: 'AI-assisted development accelerates boilerplate generation, allowing me to build software up to 10x faster. Because I guide the AI with a strong software engineering foundation, the architectural code remains clean and reliable while clients receive high-quality production-grade platforms much sooner.'
+          q: 'What is n8n and how does it help businesses?',
+          a: 'n8n is a powerful open-source workflow automation platform. I use it to connect APIs, AI models, and business tools into self-running pipelines — eliminating repetitive manual work, reducing human error, and enabling teams to focus on high-value tasks. Systems I build run stably and autonomously.'
         },
         {
           q: 'What tech stack is used for building applications?',
-          a: 'The primary tech stack consists of Next.js, React, Node.js, PostgreSQL, and Supabase. I also leverage Tailwind CSS for responsive styling, and GSAP or Lenis for smooth UI interactions, ensuring modern, performant, and scale-ready web applications.'
+          a: 'The primary tech stack consists of Next.js, React, Node.js, PostgreSQL, and Supabase. For automation, I leverage n8n with API integrations and AI tools including GitHub Copilot and Claude. I also use Tailwind CSS for responsive styling and GSAP/Lenis for smooth UI interactions.'
         },
         {
           q: 'Can you build a complete MVP from scratch?',
-          a: 'Yes, I specialize in taking ideas from concept to a fully functional Minimum Viable Product (MVP). I handle database design, user authentication, payment gateway integration (like Stripe), responsive UI, and secure deployment to production platforms.'
+          a: 'Yes, I specialize in taking ideas from concept to a fully functional Minimum Viable Product (MVP). I handle database design, user authentication, API integrations, responsive UI, and secure deployment to production platforms — plus optional n8n automation workflows to power the backend processes.'
         },
         {
-          q: 'How is the security of SaaS applications ensured?',
+          q: 'How is the security of web applications ensured?',
           a: 'Security is implemented at every layer. I configure strict Row-Level Security (RLS) policies in Supabase, implement secure cookie-based JWT authentication, sanitize user inputs to prevent vulnerabilities, and utilize environment variables for sensitive API keys.'
         },
         {
-          q: 'What is the typical timeline for building a custom SaaS?',
-          a: 'A standard MVP usually takes 2 to 6 weeks, depending on complexity. Using AI orchestration for boilerplate, I can significantly compress standard development timelines, delivering complete, functional feature sets much faster than traditional development processes.'
+          q: 'What is the typical timeline for a project?',
+          a: 'A standard MVP usually takes 2 to 6 weeks depending on complexity. With AI-assisted development for boilerplate and n8n for automation workflows, I can significantly compress timelines and deliver complete, functional systems much faster than traditional development processes.'
         }
       ]
     }
@@ -128,35 +128,35 @@ export const translations = {
       blog: 'Blog',
     },
     hero: {
-      role: 'FULLSTACK DEVELOPER', // Usually kept in English for professional titles
-      subtitle: 'Spesialis dalam Pengembangan dengan Bantuan AI, merancang aplikasi web kelas produksi secara cepat dengan Next.js, LLM, dan rekayasa UI modern.',
+      role: 'FULLSTACK DEVELOPER & AI AUTOMATION',
+      subtitle: 'Membangun aplikasi web kelas produksi dan mengotomatisasi alur kerja dengan AI & n8n. Memangkas pekerjaan manual berulang hingga 60% melalui integrasi API dan sistem otomasi cerdas.',
       viewProjects: 'Lihat Proyek',
       downloadResume: 'Unduh Resume',
     },
     about: {
       title: 'Tentang Saya',
-      role: 'Fullstack Developer',
-      p1: 'Saya adalah seorang Fullstack Developer yang terbiasa menggunakan AI sebagai rekan kolaborasi dalam pemrograman. Dengan pemahaman fundamental rekayasa perangkat lunak yang kuat, saya dapat mengarahkan AI secara efektif tanpa membuatnya kehilangan arah atau merusak arsitektur.',
-      p2: 'Keahlian utama saya mencakup Next.js, Node.js, dan PostgreSQL. Saya memadukan framework modern dengan koding berbantuan AI untuk membangun aplikasi yang kokoh, terukur, dan siap produksi dengan sangat cepat tanpa mengorbankan kualitas kode.',
+      role: 'Full-Stack Developer | AI & n8n Workflow Automation',
+      p1: 'Saya adalah Full-Stack Developer bersertifikat dengan pengalaman membangun aplikasi web (front-end dan back-end) serta mengotomatisasi proses kerja berbasis AI menggunakan n8n. Terbiasa mengintegrasikan API dan berbagai tools untuk memangkas pekerjaan manual berulang hingga 60% dan menghasilkan sistem yang berjalan stabil secara mandiri.',
+      p2: 'Keahlian utama saya mencakup Next.js, Node.js, PostgreSQL, dan Supabase. Saya memadukan framework modern dengan koding berbantuan AI dan otomasi workflow n8n untuk membangun aplikasi yang kokoh, terukur, dan siap produksi. Terbuka untuk posisi full-time, proyek freelance, dan kolaborasi di bidang web development dan AI automation.',
       techStack: 'Tumpukan Teknologi',
       certifications: 'Sertifikasi',
-      aiAssisted: 'Pengembangan dengan Bantuan AI',
-      problemSolving: 'Pemecahan Masalah Menengah',
-      googleAi: 'Sertifikasi Profesional Google AI',
-      dtaKomdigi: 'Pengembangan Front-End & Back-End - Nasional',
+      aiAssisted: 'Accelerate AI-Assisted Development with GitHub Copilot',
+      problemSolving: 'Problem Solving (Intermediate)',
+      googleAi: 'Google AI Professional Certificate',
+      dtaKomdigi: 'Full Stack Developer - Digital Talent Academy',
       profileBadge: 'Fullstack Dev',
       officeTools: 'Penguasaan Microsoft Office',
       previewCert: 'Pratinjau',
     },
     projects: {
       title: 'Proyek Unggulan',
-      subtitle: 'Beberapa hasil karya terbaru saya dalam pengembangan full-stack, integrasi AI, dan aplikasi web modern.',
+      subtitle: 'Beberapa hasil karya terbaru saya dalam pengembangan full-stack, otomasi AI dengan n8n, dan aplikasi web modern.',
       viewCode: 'Kode Sumber',
       viewLive: 'Demo Langsung',
     },
     contact: {
       title: 'Hubungi Saya',
-      subtitle: 'Punya ide proyek atau ingin berkolaborasi? Jangan ragu untuk menghubungi. Saat ini saya terbuka untuk peluang baru.',
+      subtitle: 'Punya ide proyek atau ingin berkolaborasi? Jangan ragu untuk menghubungi. Saat ini saya terbuka untuk posisi full-time, proyek freelance, dan kolaborasi otomasi AI.',
       nameLabel: 'Nama',
       namePlaceholder: 'Budi Santoso',
       emailLabel: 'Email',
@@ -172,10 +172,10 @@ export const translations = {
     },
     blog: {
       title: 'Artikel Terbaru',
-      subtitle: 'Berbagi wawasan seputar rekayasa teknologi berbantuan AI, pengembangan full-stack modern, dan animasi UI.',
+      subtitle: 'Berbagi wawasan seputar otomasi AI dengan n8n, pengembangan full-stack modern, dan rekayasa workflow.',
       readMore: 'Baca Artikel',
       categories: {
-        ai: 'AI & Koding',
+        ai: 'AI & Otomasi',
         fullstack: 'Fullstack',
         creative: 'Creative Dev',
       },
@@ -187,8 +187,8 @@ export const translations = {
           time: '5 mnt baca',
         },
         {
-          title: 'Menguasai Autentikasi Next.js 16 dan Supabase',
-          excerpt: 'Panduan lengkap membangun alur autentikasi JWT dan RBAC yang aman menggunakan Supabase SSR di Next.js App Router.',
+          title: 'Otomasi Workflow dengan n8n: Pangkas Kerja Manual hingga 60%',
+          excerpt: 'Panduan praktis membangun sistem otomasi mandiri dengan n8n, mengintegrasikan API dan AI untuk menghilangkan pekerjaan berulang secara permanen.',
           date: '18 Jun 2026',
           time: '8 mnt baca',
         },
@@ -201,7 +201,7 @@ export const translations = {
       ],
     },
     footer: {
-      description: 'Full Stack Developer yang fokus membangun aplikasi berkualitas tinggi dan berstandar produksi dengan teknologi modern.',
+      description: 'Full-Stack Developer & spesialis AI Automation. Membangun aplikasi web produksi dan workflow otomasi n8n yang memangkas kerja manual hingga 60%.',
       quickLinks: 'Tautan Cepat',
       connect: 'Terhubung',
       rights: 'Hak cipta dilindungi.',
@@ -212,27 +212,27 @@ export const translations = {
       questions: [
         {
           q: 'Layanan apa saja yang ditawarkan oleh Noval Abdillah?',
-          a: 'Noval Abdillah menawarkan jasa pengembangan web full-stack, rekayasa platform SaaS kustom, pembuatan MVP, dan integrasi kecerdasan buatan (AI). Layanan ini mencakup pembuatan frontend dengan Next.js, backend dengan Node.js/PostgreSQL, autentikasi, serta integrasi LLM.'
+          a: 'Noval Abdillah menawarkan jasa pengembangan web full-stack, otomasi workflow dengan n8n, pembuatan MVP, dan integrasi API. Layanan mencakup pembuatan frontend dengan Next.js, backend Node.js/PostgreSQL, serta sistem otomasi berbasis AI yang memangkas pekerjaan manual berulang hingga 60% dan berjalan mandiri.'
         },
         {
-          q: 'Bagaimana pengembangan berbantuan AI menguntungkan klien?',
-          a: 'Pengembangan berbantuan AI mempercepat pembuatan kode dasar sehingga proses pembangunan aplikasi menjadi hingga 10x lebih cepat. Dengan fondasi rekayasa perangkat lunak yang kuat, saya mengarahkan AI agar kode tetap bersih dan andal tanpa mengorbankan kualitas arsitektur.'
+          q: 'Apa itu n8n dan bagaimana manfaatnya untuk bisnis?',
+          a: 'n8n adalah platform otomasi workflow open-source yang powerful. Saya menggunakannya untuk menghubungkan API, model AI, dan tools bisnis menjadi pipeline yang berjalan sendiri — mengeliminasi pekerjaan manual, mengurangi kesalahan manusia, dan membebaskan tim untuk fokus pada pekerjaan bernilai tinggi.'
         },
         {
           q: 'Tumpukan teknologi apa yang digunakan untuk membangun aplikasi?',
-          a: 'Tumpukan teknologi utama saya terdiri dari Next.js, React, Node.js, PostgreSQL, dan Supabase. Saya juga menggunakan Tailwind CSS untuk styling responsif serta GSAP dan Lenis untuk animasi interaksi UI yang mulus dan siap skala.'
+          a: 'Stack utama saya terdiri dari Next.js, React, Node.js, PostgreSQL, dan Supabase. Untuk otomasi, saya menggunakan n8n dengan integrasi API dan AI tools termasuk GitHub Copilot dan Claude. Saya juga menggunakan Tailwind CSS untuk styling responsif serta GSAP dan Lenis untuk animasi UI.'
         },
         {
           q: 'Apakah Anda bisa membangun MVP lengkap dari nol?',
-          a: 'Ya, saya berpengalaman mengubah ide konsep menjadi produk MVP (Minimum Viable Product) yang siap pakai. Saya menangani desain database, alur autentikasi, integrasi gerbang pembayaran, desain antarmuka responsif, hingga deployment aman ke server produksi.'
+          a: 'Ya, saya berpengalaman mengubah ide konsep menjadi produk MVP yang siap pakai. Saya menangani desain database, alur autentikasi, integrasi API, antarmuka responsif, hingga deployment ke produksi — plus workflow otomasi n8n opsional untuk mengotomatiskan proses backend.'
         },
         {
-          q: 'Bagaimana Anda memastikan keamanan aplikasi SaaS yang dibangun?',
-          a: 'Keamanan diterapkan di setiap lapisan aplikasi. Saya mengonfigurasi aturan Row-Level Security (RLS) ketat di Supabase, menggunakan autentikasi JWT berbasis cookie aman, melakukan sanitasi input, serta menyembunyikan kredensial di variabel lingkungan.'
+          q: 'Bagaimana Anda memastikan keamanan aplikasi yang dibangun?',
+          a: 'Keamanan diterapkan di setiap lapisan. Saya mengonfigurasi aturan Row-Level Security (RLS) ketat di Supabase, menggunakan autentikasi JWT berbasis cookie aman, melakukan sanitasi input, serta menyembunyikan kredensial di variabel lingkungan.'
         },
         {
-          q: 'Berapa lama waktu pengerjaan untuk membangun platform SaaS?',
-          a: 'Proses pembuatan MVP standar biasanya memakan waktu antara 2 hingga 6 minggu tergantung kompleksitasnya. Dengan orkestrasi AI untuk kode boilerplate, saya dapat memangkas durasi pengerjaan secara signifikan untuk menghasilkan fitur fungsional secara lebih cepat.'
+          q: 'Berapa lama waktu pengerjaan untuk sebuah proyek?',
+          a: 'MVP standar biasanya memakan waktu 2 hingga 6 minggu tergantung kompleksitasnya. Dengan pengembangan berbantuan AI untuk boilerplate dan n8n untuk workflow otomasi, saya dapat memangkas durasi pengerjaan secara signifikan dan menghasilkan sistem fungsional jauh lebih cepat.'
         }
       ]
     }

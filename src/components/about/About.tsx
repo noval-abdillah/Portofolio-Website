@@ -71,7 +71,7 @@ export default function About() {
             <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-900/50 mt-8">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.techStack}</h4>
               <div className="flex flex-wrap gap-2">
-                {['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase', 'Tailwind CSS', 'Three.js', 'GSAP', 'AI Prompting'].map((tech) => (
+                {['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase', 'n8n Automation', 'Tailwind CSS', 'Three.js', 'GSAP', 'AI Prompting', 'REST API Integration'].map((tech) => (
                   <span key={tech} className="px-3 py-1 bg-zinc-800 text-zinc-100 text-sm rounded-full">
                     {tech}
                   </span>
