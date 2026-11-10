@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="text-2xl font-bold font-mono text-green-500 hover:text-green-400 transition-colors">
+            <Link href="/" className="text-2xl font-bold font-mono text-teal-500 hover:text-teal-400 transition-colors">
               NOVAL<span className="text-zinc-500">.</span>
             </Link>
             <p className="text-zinc-300 mt-4 max-w-md">
@@ -25,22 +25,22 @@ export default function Footer() {
             <p className="text-white font-semibold mb-4">{t.footer.quickLinks}</p>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-zinc-300 hover:text-green-500 transition-colors">
+                <Link href="/" className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.home}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-zinc-300 hover:text-green-500 transition-colors">
+                <Link href="/about" className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-zinc-300 hover:text-green-500 transition-colors">
+                <Link href="/projects" className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.projects}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-zinc-300 hover:text-green-500 transition-colors">
+                <Link href="/contact" className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.contact}
                 </Link>
               </li>
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="GitHub"
               >
                 <GitHubIcon className="w-6 h-6" />
@@ -63,14 +63,14 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="w-6 h-6" />
               </a>
               <a
                 href="mailto:noval.abdillah223@gmail.com"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="Email"
               >
                 <EmailIcon className="w-6 h-6" />

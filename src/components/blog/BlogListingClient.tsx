@@ -13,7 +13,7 @@ export default function BlogListingClient() {
   const getCategoryStyles = (index: number) => {
     switch (index) {
       case 0:
-        return 'bg-green-500/10 text-green-400 border-green-500/20';
+        return 'bg-teal-500/10 text-teal-400 border-teal-500/20';
       case 1:
         return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
       case 2:
@@ -36,12 +36,12 @@ export default function BlogListingClient() {
 
   return (
     <div className="min-h-screen bg-zinc-950 py-24 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-green-500/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-teal-500/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-10 md:mb-20">
           <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 font-mono tracking-tight">
-            THE<span className="text-green-500">.</span>BLOG
+            THE<span className="text-teal-500">.</span>BLOG
           </h1>
           <p className="text-zinc-400 max-w-2xl mx-auto text-base md:text-lg">
             {t.blog.subtitle}
@@ -52,7 +52,7 @@ export default function BlogListingClient() {
           {t.blog.posts.map((post, index) => (
             <article
               key={index}
-              className="group relative bg-zinc-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/80 hover:border-green-500/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,197,94,0.04)] flex flex-col"
+              className="group relative bg-zinc-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/80 hover:border-teal-500/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,197,94,0.04)] flex flex-col"
             >
               <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
                 <Image
@@ -76,7 +76,7 @@ export default function BlogListingClient() {
                 </div>
 
                 <Link href={`/blog/${blogPosts[index].slug}`}>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-500 transition-colors duration-300 leading-snug cursor-pointer">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-teal-500 transition-colors duration-300 leading-snug cursor-pointer">
                     {post.title}
                   </h3>
                 </Link>
@@ -94,7 +94,7 @@ export default function BlogListingClient() {
 
                 <Link
                   href={`/blog/${blogPosts[index].slug}`}
-                  className="flex items-center gap-1 text-xs font-mono font-bold text-green-500 group-hover:text-green-400 transition-colors cursor-pointer"
+                  className="flex items-center gap-1 text-xs font-mono font-bold text-teal-500 group-hover:text-teal-400 transition-colors cursor-pointer"
                 >
                   {t.blog.readMore}
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />

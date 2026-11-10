@@ -53,12 +53,12 @@ export default function CustomCursor({ children }: CustomCursorProps) {
 
     const onEnter = () => {
       gsap.to(dot, { scale: 1.5, opacity: 0.4, duration: 0.25 });
-      gsap.to(ring, { scale: 2.2, borderColor: '#22c55e', duration: 0.25 });
+      gsap.to(ring, { scale: 2.2, borderColor: '#14b8a6', duration: 0.25 });
     };
 
     const onLeave = () => {
       gsap.to(dot, { scale: 1, opacity: 1, duration: 0.25 });
-      gsap.to(ring, { scale: 1, borderColor: 'rgba(34,197,94,0.5)', duration: 0.25 });
+      gsap.to(ring, { scale: 1, borderColor: 'rgba(20,184,166,0.5)', duration: 0.25 });
     };
 
     // Hide cursor initially until first move
@@ -93,12 +93,12 @@ export default function CustomCursor({ children }: CustomCursorProps) {
       {/* Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-green-500 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+        className="fixed top-0 left-0 w-2 h-2 bg-teal-400 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
       />
       {/* Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 border border-green-500/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-8 h-8 border border-teal-500/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2"
       />
       {children}
     </>

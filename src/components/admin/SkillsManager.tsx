@@ -106,12 +106,12 @@ export default function SkillsManager() {
         <div
           className={`p-4 rounded-xl flex items-start gap-3 text-sm animate-in fade-in duration-300 ${
             feedback.type === 'success'
-              ? 'bg-green-950/20 border border-green-800/40 text-green-400'
+              ? 'bg-teal-950/20 border border-teal-800/40 text-teal-400'
               : 'bg-red-950/20 border border-red-800/40 text-red-400'
           }`}
         >
           {feedback.type === 'success' ? (
-            <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+            <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
           ) : (
             <WarningIcon className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
           )}
@@ -130,13 +130,13 @@ export default function SkillsManager() {
           value={newName}
           onChange={(e) => setNewName(e.target.value)}
           placeholder="Nama skill (misal: Docker, Supabase, Excel)"
-          className="flex-1 w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500 font-mono"
+          className="flex-1 w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500 font-mono"
         />
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value as 'tech' | 'office')}
           aria-label="Pilih Kategori Keahlian"
-          className="w-full sm:w-auto px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500 font-mono"
+          className="w-full sm:w-auto px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500 font-mono"
         >
           <option value="tech">Kategori: Tech Stack</option>
           <option value="office">Kategori: Office Tools</option>
@@ -144,7 +144,7 @@ export default function SkillsManager() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full sm:w-auto px-5 py-2.5 bg-green-600 hover:bg-green-500 disabled:opacity-50 text-zinc-950 font-bold rounded-lg text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.2)] shrink-0"
+          className="w-full sm:w-auto px-5 py-2.5 bg-teal-600 hover:bg-teal-500 disabled:opacity-50 text-zinc-950 font-bold rounded-lg text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.2)] shrink-0"
         >
           {submitting ? <SVGSpinner size={16} /> : <PlusIcon className="w-4 h-4 stroke-[3]" />}
           <span>Tambah</span>
@@ -162,7 +162,7 @@ export default function SkillsManager() {
           <div className="p-6 bg-zinc-900/60 border border-zinc-800 rounded-xl">
             <h3 className="text-base font-bold text-white font-mono mb-4 flex items-center justify-between">
               <span>TECH STACK ({techList.length})</span>
-              <span className="text-xs text-green-500 font-normal">Tampil di About</span>
+              <span className="text-xs text-teal-500 font-normal">Tampil di About</span>
             </h3>
             {techList.length === 0 ? (
               <p className="text-xs text-zinc-500 font-mono">Belum ada tech stack di database (menggunakan fallback bawaan).</p>
@@ -193,7 +193,7 @@ export default function SkillsManager() {
           <div className="p-6 bg-zinc-900/60 border border-zinc-800 rounded-xl">
             <h3 className="text-base font-bold text-white font-mono mb-4 flex items-center justify-between">
               <span>OFFICE TOOLS ({officeList.length})</span>
-              <span className="text-xs text-green-500 font-normal">Tampil di About</span>
+              <span className="text-xs text-teal-500 font-normal">Tampil di About</span>
             </h3>
             {officeList.length === 0 ? (
               <p className="text-xs text-zinc-500 font-mono">Belum ada office tools di database (menggunakan fallback bawaan).</p>

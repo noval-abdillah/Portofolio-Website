@@ -80,13 +80,13 @@ export default function About() {
           
           {/* Left: 3D Profile Picture */}
           <div className="order-2 lg:order-1 relative">
-            <div className="absolute inset-0 bg-green-500/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute inset-0 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none" />
             <ProfileImage />
           </div>
 
           {/* Right: Content */}
           <div className="order-1 lg:order-2 space-y-6">
-            <h3 className="text-2xl font-semibold text-green-500">{t.about.role}</h3>
+            <h3 className="text-2xl font-semibold text-teal-500">{t.about.role}</h3>
             <p className="text-zinc-300 leading-relaxed text-lg">
               {t.about.p1}
             </p>
@@ -94,7 +94,7 @@ export default function About() {
               {t.about.p2}
             </p>
 
-            <SpotlightCard className="p-6 mt-8" spotlightColor="rgba(34, 197, 94, 0.12)">
+            <SpotlightCard className="p-6 mt-8" spotlightColor="rgba(20, 184, 166, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.techStack}</h4>
               <div className="flex flex-wrap gap-2">
                 {techSkills.map((tech) => (
@@ -105,7 +105,7 @@ export default function About() {
               </div>
             </SpotlightCard>
             
-            <SpotlightCard className="p-6" spotlightColor="rgba(34, 197, 94, 0.12)">
+            <SpotlightCard className="p-6" spotlightColor="rgba(20, 184, 166, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.officeTools}</h4>
               <div className="flex flex-wrap gap-2">
                 {officeSkills.map((tool) => (
@@ -116,13 +116,13 @@ export default function About() {
               </div>
             </SpotlightCard>
 
-            <SpotlightCard className="p-6" spotlightColor="rgba(34, 197, 94, 0.12)">
+            <SpotlightCard className="p-6" spotlightColor="rgba(20, 184, 166, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.certifications}</h4>
               <ul className="space-y-4">
                 {certificates.map((cert) => (
                   <li key={cert.id} className="flex items-start justify-between gap-3">
                     <div className="flex gap-3 items-start">
-                      <div className="mt-1 text-green-500">
+                      <div className="mt-1 text-teal-500">
                         <CheckIcon className="w-5 h-5" />
                       </div>
                       <div>

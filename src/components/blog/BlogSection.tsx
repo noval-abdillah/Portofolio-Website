@@ -13,7 +13,7 @@ export default function BlogSection() {
   const getCategoryStyles = (index: number) => {
     switch (index) {
       case 0:
-        return 'bg-green-500/10 text-green-400 border-green-500/20';
+        return 'bg-teal-500/10 text-teal-400 border-teal-500/20';
       case 1:
         return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
       case 2:
@@ -37,7 +37,7 @@ export default function BlogSection() {
   return (
     <section id="blog" className="py-24 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
       {/* Glow decorations */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-green-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -53,7 +53,7 @@ export default function BlogSection() {
           {t.blog.posts.map((post, index) => (
             <article
               key={index}
-              className="group relative bg-zinc-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/80 hover:border-green-500/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,197,94,0.04)] flex flex-col"
+              className="group relative bg-zinc-900/40 backdrop-blur-sm rounded-xl overflow-hidden border border-zinc-800/80 hover:border-teal-500/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,197,94,0.04)] flex flex-col"
             >
               {/* Blog Cover Image */}
               <div className="relative aspect-video w-full overflow-hidden bg-zinc-800">
@@ -80,7 +80,7 @@ export default function BlogSection() {
 
                 {/* Title */}
                 <Link href={`/blog/${blogPosts[index].slug}`}>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-500 transition-colors duration-300 leading-snug cursor-pointer">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-teal-500 transition-colors duration-300 leading-snug cursor-pointer">
                     {post.title}
                   </h3>
                 </Link>
@@ -98,7 +98,7 @@ export default function BlogSection() {
                   <span>{post.time}</span>
                 </div>
 
-                <Link href={`/blog/${blogPosts[index].slug}`} className="flex items-center gap-1 text-xs font-mono font-bold text-green-500 group-hover:text-green-400 transition-colors cursor-pointer">
+                <Link href={`/blog/${blogPosts[index].slug}`} className="flex items-center gap-1 text-xs font-mono font-bold text-teal-500 group-hover:text-teal-400 transition-colors cursor-pointer">
                   {t.blog.readMore}
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>

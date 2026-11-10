@@ -155,7 +155,7 @@ export default function CertificatesManager() {
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="px-4 py-2.5 bg-green-600 hover:bg-green-500 text-zinc-950 font-bold rounded-lg text-sm flex items-center gap-2 w-fit transition-all shadow-[0_0_15px_rgba(34,197,94,0.2)] cursor-pointer"
+          className="px-4 py-2.5 bg-teal-600 hover:bg-teal-500 text-zinc-950 font-bold rounded-lg text-sm flex items-center gap-2 w-fit transition-all shadow-[0_0_15px_rgba(34,197,94,0.2)] cursor-pointer"
         >
           <PlusIcon className="w-4 h-4 stroke-[3]" />
           <span>{showForm ? 'Batal' : 'Tambah Sertifikat'}</span>
@@ -167,12 +167,12 @@ export default function CertificatesManager() {
         <div
           className={`p-4 rounded-xl flex items-start gap-3 text-sm animate-in fade-in duration-300 ${
             feedback.type === 'success'
-              ? 'bg-green-950/20 border border-green-800/40 text-green-400'
+              ? 'bg-teal-950/20 border border-teal-800/40 text-teal-400'
               : 'bg-red-950/20 border border-red-800/40 text-red-400'
           }`}
         >
           {feedback.type === 'success' ? (
-            <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+            <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
           ) : (
             <WarningIcon className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
           )}
@@ -197,7 +197,7 @@ export default function CertificatesManager() {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="misal: Digital Talent Academy (KOMDIGI)"
-                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500"
               />
             </div>
             <div>
@@ -208,7 +208,7 @@ export default function CertificatesManager() {
                 value={formData.issuer}
                 onChange={(e) => setFormData({ ...formData, issuer: e.target.value })}
                 placeholder="misal: Google (via Coursera)"
-                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500"
               />
             </div>
             <div>
@@ -218,7 +218,7 @@ export default function CertificatesManager() {
                 value={formData.credential_url}
                 onChange={(e) => setFormData({ ...formData, credential_url: e.target.value })}
                 placeholder="https://coursera.org/verify/..."
-                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500"
               />
             </div>
             <div>
@@ -228,14 +228,14 @@ export default function CertificatesManager() {
                 value={formData.display_order}
                 onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) || 0 })}
                 placeholder="0"
-                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-green-500"
+                className="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-lg text-white text-sm focus:outline-none focus:border-teal-500"
               />
             </div>
           </div>
 
           <div>
             <label className="block text-xs font-mono text-zinc-400 mb-2">BERKAS GAMBAR SERTIFIKAT (PNG/JPG/WEBP) *</label>
-            <label className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-zinc-800 hover:border-green-500/50 rounded-xl cursor-pointer bg-zinc-950/50 transition-colors">
+            <label className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-zinc-800 hover:border-teal-500/50 rounded-xl cursor-pointer bg-zinc-950/50 transition-colors">
               <UploadIcon className="w-8 h-8 text-zinc-500 mb-2" />
               <span className="text-sm text-zinc-300 font-medium">
                 {formData.image ? formData.image.name : 'Klik untuk unggah gambar sertifikat'}
@@ -262,7 +262,7 @@ export default function CertificatesManager() {
             <button
               type="submit"
               disabled={formLoading}
-              className="px-6 py-2.5 bg-green-600 hover:bg-green-500 disabled:opacity-50 text-zinc-950 font-bold rounded-lg text-sm flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+              className="px-6 py-2.5 bg-teal-600 hover:bg-teal-500 disabled:opacity-50 text-zinc-950 font-bold rounded-lg text-sm flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.3)]"
             >
               {formLoading && <SVGSpinner size={16} />}
               <span>Simpan Sertifikat</span>
@@ -304,7 +304,7 @@ export default function CertificatesManager() {
                     href={cert.credential_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-green-500 hover:underline mt-1 inline-block truncate max-w-full font-mono"
+                    className="text-xs text-teal-500 hover:underline mt-1 inline-block truncate max-w-full font-mono"
                   >
                     Tautan Verifikasi ↗
                   </a>

@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
           The secret to getting production-grade code from AI is giving it precise context. I treat prompts as technical specifications. I outline the input types, state management patterns, and database schemas before asking the agent to generate code.
         </p>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-teal-400">
           // Example specification structure<br/>
           const PromptSpec = {<br/>
           &nbsp;&nbsp;framework: "Next.js 16 App Router",<br/>
@@ -82,7 +82,7 @@ export const blogPosts: BlogPost[] = [
           Rahasia mendapatkan kode standar produksi dari AI adalah dengan memberikan konteks yang tepat. Saya memperlakukan perintah (prompt) sebagai spesifikasi teknis. Saya menjabarkan tipe input, pola manajemen status, dan skema database terlebih dahulu sebelum meminta AI membuat kode.
         </p>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-teal-400">
           // Contoh struktur spesifikasi prompt<br/>
           const PromptSpec = {<br/>
           &nbsp;&nbsp;framework: "Next.js 16 App Router",<br/>
@@ -133,7 +133,7 @@ export const blogPosts: BlogPost[] = [
           n8n is a node-based workflow automation tool that lets you visually connect services and APIs without heavy custom code. Unlike Zapier, n8n is self-hostable, giving you full control over your data and workflows. I use it to build pipelines that run 24/7, autonomously handling tasks that would otherwise require manual intervention.
         </p>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-teal-400">
           // Example: n8n workflow structure<br/>
           Trigger (Webhook/Schedule)<br/>
           &nbsp;&nbsp;→ HTTP Request (Fetch data from API)<br/>
@@ -180,7 +180,7 @@ export const blogPosts: BlogPost[] = [
           n8n adalah tool otomasi workflow berbasis node yang memungkinkan Anda menghubungkan layanan dan API secara visual tanpa banyak kode kustom. Berbeda dari Zapier, n8n bisa di-self-host sehingga Anda punya kontrol penuh atas data dan workflow Anda.
         </p>
 
-        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-green-400">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-6 font-mono text-sm text-teal-400">
           // Contoh: struktur workflow n8n<br/>
           Trigger (Webhook/Jadwal)<br/>
           &nbsp;&nbsp;→ HTTP Request (Ambil data dari API)<br/>

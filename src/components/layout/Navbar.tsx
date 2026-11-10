@@ -90,8 +90,8 @@ export default function Navbar() {
                   ref={(el) => { navLinksRef.current[index] = el; }}
                   className={`text-sm font-mono transition-colors uppercase tracking-wider ${
                     pathname === link.href 
-                      ? 'text-green-500' 
-                      : 'text-zinc-300 hover:text-green-500'
+                      ? 'text-teal-500' 
+                      : 'text-zinc-300 hover:text-teal-500'
                   }`}
                 >
                   {link.name}
@@ -101,7 +101,7 @@ export default function Navbar() {
               {/* Animated Active Indicator */}
               <div
                 ref={indicatorRef}
-                className="absolute bottom-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-400 rounded-full"
+                className="absolute bottom-0 h-0.5 bg-gradient-to-r from-teal-500 to-emerald-400 rounded-full"
                 style={{ transform: 'translateY(8px)' }}
               />
             </div>
@@ -112,7 +112,7 @@ export default function Navbar() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="GitHub"
               >
                 <GitHubIcon className="w-5 h-5" />
@@ -121,14 +121,14 @@ export default function Navbar() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon className="w-5 h-5" />
               </a>
               <a
                 href="mailto:noval.abdillah223@gmail.com"
-                className="text-zinc-300 hover:text-green-500 transition-colors"
+                className="text-zinc-300 hover:text-teal-500 transition-colors"
                 aria-label="Email"
               >
                 <EmailIcon className="w-5 h-5" />
@@ -171,7 +171,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-zinc-300 hover:text-green-500 transition-colors"
+            className="md:hidden text-zinc-300 hover:text-teal-500 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -190,8 +190,8 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block text-sm font-mono transition-colors uppercase tracking-wider ${
                   pathname === link.href 
-                    ? 'text-green-500' 
-                    : 'text-zinc-300 hover:text-green-500'
+                    ? 'text-teal-500' 
+                    : 'text-zinc-300 hover:text-teal-500'
                 }`}
               >
                 {link.name}
@@ -203,7 +203,7 @@ export default function Navbar() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-zinc-300 hover:text-green-500 transition-colors"
+                className="flex items-center space-x-2 text-zinc-300 hover:text-teal-500 transition-colors"
               >
                 <GitHubIcon className="w-5 h-5" />
                 <span>GitHub</span>
@@ -212,7 +212,7 @@ export default function Navbar() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-zinc-300 hover:text-green-500 transition-colors"
+                className="flex items-center space-x-2 text-zinc-300 hover:text-teal-500 transition-colors"
               >
                 <LinkedInIcon className="w-5 h-5" />
                 <span>LinkedIn</span>
@@ -223,7 +223,7 @@ export default function Navbar() {
                 <span className="text-sm font-mono text-zinc-300">Language:</span>
                 <button 
                   onClick={() => setLanguage('en')}
-                  className={`text-sm font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-400'}`}
+                  className={`text-sm font-mono font-bold transition-colors ${language === 'en' ? 'text-teal-500' : 'text-zinc-400'}`}
                   aria-label="Switch mobile language to English"
                 >
                   EN
@@ -231,7 +231,7 @@ export default function Navbar() {
                 <span className="text-zinc-700">|</span>
                 <button 
                   onClick={() => setLanguage('id')}
-                  className={`text-sm font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-400'}`}
+                  className={`text-sm font-mono font-bold transition-colors ${language === 'id' ? 'text-teal-500' : 'text-zinc-400'}`}
                   aria-label="Ganti bahasa mobile ke Indonesia"
                 >
                   ID

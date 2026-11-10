@@ -67,14 +67,14 @@ export default function ProfileImage({ imageSrc }: { imageSrc?: string }) {
   return (
     <div className="relative w-full aspect-[4/5] max-w-md mx-auto group perspective-[1200px]" ref={wrapperRef}>
       {/* Latar Belakang Bercahaya (Glow) */}
-      <div className="absolute inset-0 bg-green-500/20 blur-[100px] rounded-[2rem] transition-opacity duration-700 group-hover:opacity-100 opacity-50" />
+      <div className="absolute inset-0 bg-teal-500/20 blur-[100px] rounded-[2rem] transition-opacity duration-700 group-hover:opacity-100 opacity-50" />
       
       {/* Kontainer Kartu 3D */}
       <div 
         ref={cardRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full h-full rounded-[2rem] border border-zinc-700/50 bg-zinc-900/40 p-3 lg:p-4 backdrop-blur-md shadow-2xl transition-colors duration-500 group-hover:border-green-500/50"
+        className="relative w-full h-full rounded-[2rem] border border-zinc-700/50 bg-zinc-900/40 p-3 lg:p-4 backdrop-blur-md shadow-2xl transition-colors duration-500 group-hover:border-teal-500/50"
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Pembungkus Gambar dengan efek Depth (Z-axis) */}
@@ -95,14 +95,14 @@ export default function ProfileImage({ imageSrc }: { imageSrc?: string }) {
           <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between" style={{ transform: 'translateZ(20px)' }}>
             <div>
               <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">Noval Abdillah</h3>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-green-400 font-medium text-xs">{t.about.profileBadge}</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <span className="text-teal-400 font-medium text-xs">{t.about.profileBadge}</span>
               </div>
             </div>
             
             <div className="h-12 w-12 rounded-xl bg-zinc-900/80 flex items-center justify-center border border-zinc-700 backdrop-blur-md shadow-xl rotate-3 group-hover:rotate-12 transition-transform duration-500">
-              <span className="text-green-500 font-black text-lg">NA</span>
+              <span className="text-teal-500 font-black text-lg">NA</span>
             </div>
           </div>
         </div>

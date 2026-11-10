@@ -33,7 +33,7 @@ export default function FAQSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
       
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-green-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-teal-500/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -51,17 +51,17 @@ export default function FAQSection() {
             return (
               <div
                 key={index}
-                className="border border-zinc-800 bg-zinc-900/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-green-500/30"
+                className="border border-zinc-800 bg-zinc-900/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-teal-500/30"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 text-white font-semibold text-lg hover:text-green-400 transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 text-white font-semibold text-lg hover:text-teal-400 transition-colors"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                   id={`faq-question-${index}`}
                 >
                   <span>{item.q}</span>
-                  <span className="text-2xl font-mono text-green-500 transition-transform duration-300">
+                  <span className="text-2xl font-mono text-teal-500 transition-transform duration-300">
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>

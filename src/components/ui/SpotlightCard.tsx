@@ -9,7 +9,7 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SpotlightCard = forwardRef<HTMLDivElement, SpotlightCardProps>(function SpotlightCard(
-  { children, className = '', spotlightColor = 'rgba(34, 197, 94, 0.15)', ...props },
+  { children, className = '', spotlightColor = 'rgba(20, 184, 166, 0.18)', ...props },
   ref
 ) {
   const divRef = useRef<HTMLDivElement>(null);

@@ -162,7 +162,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       ref={cardRef as unknown as React.Ref<HTMLDivElement>}
       style={{ willChange: 'transform' }}
       className="group"
-      spotlightColor="rgba(34, 197, 94, 0.22)"
+      spotlightColor="rgba(20, 184, 166, 0.22)"
     >
       <div className="relative aspect-video overflow-hidden bg-zinc-800">
         {project.image_url ? (
@@ -185,7 +185,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
 
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
           {project.title}
         </h3>
         <p className="text-zinc-400 text-sm mb-4 line-clamp-3">{project.description}</p>
@@ -205,7 +205,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 href={project.github_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-zinc-400 hover:text-green-400 transition-colors text-sm font-mono"
+                className="flex items-center gap-2 text-zinc-400 hover:text-teal-400 transition-colors text-sm font-mono"
               >
                 <GitHubIcon className="w-4 h-4" />
                 {t.projects.viewCode}
@@ -218,7 +218,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 href={project.live_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-zinc-400 hover:text-green-400 transition-colors text-sm font-mono"
+                className="flex items-center gap-2 text-zinc-400 hover:text-teal-400 transition-colors text-sm font-mono"
               >
                 <ExternalLinkIcon className="w-4 h-4" />
                 {t.projects.viewLive}

@@ -64,10 +64,10 @@ export default function Contact() {
             <div className="space-y-4">
               <a
                 href="mailto:noval.abdillah223@gmail.com"
-                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-green-500 transition-colors group"
+                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-teal-500 transition-colors group"
               >
-                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-green-500/10 transition-colors">
-                  <EmailIcon className="w-6 h-6 text-zinc-400 group-hover:text-green-500" />
+                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-teal-500/10 transition-colors">
+                  <EmailIcon className="w-6 h-6 text-zinc-400 group-hover:text-teal-500" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500">Email</p>
@@ -79,10 +79,10 @@ export default function Contact() {
                 href="https://github.com/noval-abdillah"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-green-500 transition-colors group"
+                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-teal-500 transition-colors group"
               >
-                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-green-500/10 transition-colors">
-                  <GitHubIcon className="w-6 h-6 text-zinc-400 group-hover:text-green-500" />
+                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-teal-500/10 transition-colors">
+                  <GitHubIcon className="w-6 h-6 text-zinc-400 group-hover:text-teal-500" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500">GitHub</p>
@@ -94,10 +94,10 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/noval-abdillah-415589316/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-green-500 transition-colors group"
+                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-teal-500 transition-colors group"
               >
-                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-green-500/10 transition-colors">
-                  <LinkedInIcon className="w-6 h-6 text-zinc-400 group-hover:text-green-500" />
+                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-teal-500/10 transition-colors">
+                  <LinkedInIcon className="w-6 h-6 text-zinc-400 group-hover:text-teal-500" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500">LinkedIn</p>
@@ -109,10 +109,10 @@ export default function Contact() {
                 href="https://instagram.com/novalnkw.__"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-green-500 transition-colors group"
+                className="flex items-center gap-4 p-4 border border-zinc-800 rounded-lg hover:border-teal-500 transition-colors group"
               >
-                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-green-500/10 transition-colors">
-                  <InstagramIcon className="w-6 h-6 text-zinc-400 group-hover:text-green-500" />
+                <div className="p-3 bg-zinc-900 rounded-lg group-hover:bg-teal-500/10 transition-colors">
+                  <InstagramIcon className="w-6 h-6 text-zinc-400 group-hover:text-teal-500" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500">Instagram</p>
@@ -124,8 +124,8 @@ export default function Contact() {
 
           <SpotlightCard
             ref={contentRef as unknown as React.Ref<HTMLDivElement>}
-            className="p-8 shadow-2xl shadow-green-950/20"
-            spotlightColor="rgba(34, 197, 94, 0.18)"
+            className="p-8 shadow-2xl shadow-teal-950/20"
+            spotlightColor="rgba(20, 184, 166, 0.18)"
           >
             <h3 className="text-2xl font-bold text-white mb-6">{t.contact.title}</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,7 +136,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="contact-name"
-                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder={t.contact.namePlaceholder}
                 />
               </div>
@@ -147,7 +147,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="contact-email"
-                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder={t.contact.emailPlaceholder}
                 />
               </div>
@@ -158,12 +158,12 @@ export default function Contact() {
                 <textarea
                   id="contact-message"
                   rows={4}
-                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors resize-none"
                   placeholder={t.contact.messagePlaceholder}
                 />
               </div>
               {sent ? (
-                <div className="w-full px-6 py-3 bg-green-500/20 border border-green-500/30 text-green-400 font-bold rounded-lg flex items-center justify-center gap-2">
+                <div className="w-full px-6 py-3 bg-teal-500/20 border border-teal-500/30 text-teal-400 font-bold rounded-lg flex items-center justify-center gap-2">
                   <CheckIcon className="w-5 h-5" />
                   {t.contact.successTitle}
                 </div>
@@ -171,7 +171,7 @@ export default function Contact() {
                 <Magnetic strength={0.2}>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] cursor-pointer"
+                    className="w-full px-6 py-3 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] cursor-pointer"
                   >
                     {t.contact.sendMessage}
                   </button>

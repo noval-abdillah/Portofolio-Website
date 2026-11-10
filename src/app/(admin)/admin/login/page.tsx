@@ -55,8 +55,8 @@ export default function AdminLogin() {
         <div className="bg-zinc-900 p-8 rounded-xl border border-zinc-800">
           {success ? (
             <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckIcon className="w-8 h-8 text-green-500" />
+              <div className="w-16 h-16 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckIcon className="w-8 h-8 text-teal-500" />
               </div>
               <h3 className="text-xl font-semibold text-white">Login Successful!</h3>
               <p className="text-zinc-400 mt-2">Redirecting to dashboard...</p>
@@ -79,7 +79,7 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder="admin@example.com"
                 />
               </div>
@@ -94,7 +94,7 @@ export default function AdminLogin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder="••••••••"
                 />
               </div>
@@ -102,7 +102,7 @@ export default function AdminLogin() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-6 py-3 bg-green-600 hover:bg-green-500 disabled:bg-green-600/50 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full px-6 py-3 bg-teal-600 hover:bg-teal-500 disabled:bg-teal-600/50 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 {loading && <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
                 <span>Sign In</span>
@@ -114,7 +114,7 @@ export default function AdminLogin() {
         <div className="text-center">
           <p className="text-zinc-500">
             Need an account?{' '}
-            <a href="#" className="text-green-500 hover:text-green-400">
+            <a href="#" className="text-teal-500 hover:text-teal-400">
               Contact administrator
             </a>
           </p>

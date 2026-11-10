@@ -104,12 +104,12 @@ export default function ProfilePhotoManager() {
         <div
           className={`p-4 rounded-xl flex items-start gap-3 text-sm animate-in fade-in duration-300 ${
             feedback.type === 'success'
-              ? 'bg-green-950/20 border border-green-800/40 text-green-400'
+              ? 'bg-teal-950/20 border border-teal-800/40 text-teal-400'
               : 'bg-red-950/20 border border-red-800/40 text-red-400'
           }`}
         >
           {feedback.type === 'success' ? (
-            <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+            <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
           ) : (
             <WarningIcon className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
           )}

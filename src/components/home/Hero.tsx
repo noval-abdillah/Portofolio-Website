@@ -14,7 +14,7 @@ const Canvas3D = dynamic(() => import('@/components/canvas/Canvas3D'), {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 flex items-center justify-center bg-zinc-950">
-      <svg className="animate-spin w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="none">
+      <svg className="animate-spin w-12 h-12 text-teal-500" viewBox="0 0 24 24" fill="none">
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
       </svg>
@@ -114,8 +114,8 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
         {/* Pulsing Status Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-mono mb-8 backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-400 text-xs font-mono mb-8 backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-teal-400 animate-ping" />
           <span>AVAILABLE FOR NEW PROJECTS</span>
         </div>
 
@@ -140,7 +140,7 @@ export default function Hero() {
           <Magnetic strength={0.3}>
             <Link
               href="/projects"
-              className="inline-block px-8 py-4 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:shadow-[0_0_35px_rgba(34,197,94,0.6)]"
+              className="inline-block px-8 py-4 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:shadow-[0_0_35px_rgba(20,184,166,0.6)]"
             >
               {t.hero.viewProjects}
             </Link>
@@ -148,7 +148,7 @@ export default function Hero() {
           <Magnetic strength={0.3}>
             <button
               onClick={() => setShowResume(true)}
-              className="px-8 py-4 border border-zinc-700 hover:border-green-500/80 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-green-400 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
+              className="px-8 py-4 border border-zinc-700 hover:border-teal-500/80 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-teal-400 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
             >
               <DownloadIcon className="w-5 h-5" />
               {t.hero.downloadResume}
@@ -211,7 +211,7 @@ export default function Hero() {
               <a
                 href={resumeUrl}
                 download
-                className="px-6 py-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-all text-sm font-semibold shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                className="px-6 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-all text-sm font-semibold shadow-[0_0_15px_rgba(20,184,166,0.3)]"
               >
                 Download PDF
               </a>
@@ -228,7 +228,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
         <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex justify-center pt-2">
-          <div className="w-1 h-2 bg-green-500 rounded-full" />
+          <div className="w-1 h-2 bg-teal-500 rounded-full" />
         </div>
       </div>
     </section>

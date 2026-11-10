@@ -285,7 +285,7 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
       {/* Visual neon glow decorations */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-green-500/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-teal-500/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
         
@@ -293,7 +293,7 @@ export default function AdminDashboard() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 border-b border-zinc-900 pb-8">
           <div>
             <h1 className="text-3xl font-bold text-white tracking-tight font-mono">
-              ADMIN<span className="text-green-500">.</span>PANEL
+              ADMIN<span className="text-teal-500">.</span>PANEL
             </h1>
             <p className="text-sm text-zinc-400 mt-1 font-mono">/ Manage your portfolio projects and resume real-time</p>
           </div>
@@ -301,7 +301,7 @@ export default function AdminDashboard() {
             {activeTab === 'projects' && (
               <button
                 onClick={() => setShowForm(!showForm)}
-                className="px-5 py-2.5 bg-green-600 hover:bg-green-500 text-zinc-950 font-bold rounded-lg transition-all duration-300 flex items-center gap-2 text-sm shadow-[0_0_20px_rgba(34,197,94,0.15)] cursor-pointer"
+                className="px-5 py-2.5 bg-teal-600 hover:bg-teal-500 text-zinc-950 font-bold rounded-lg transition-all duration-300 flex items-center gap-2 text-sm shadow-[0_0_20px_rgba(34,197,94,0.15)] cursor-pointer"
               >
                 <PlusIcon className="w-4 h-4 stroke-[3]" />
                 <span>{showForm ? 'Tutup Form' : 'Tambah Proyek'}</span>
@@ -328,11 +328,11 @@ export default function AdminDashboard() {
         )}
 
         {dashboardSuccess && (
-          <div className="mb-8 p-4 bg-green-950/20 border border-green-800/40 rounded-xl flex items-start gap-3 text-green-400 animate-in fade-in slide-in-from-top-2 duration-300">
-            <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+          <div className="mb-8 p-4 bg-teal-950/20 border border-teal-800/40 rounded-xl flex items-start gap-3 text-teal-400 animate-in fade-in slide-in-from-top-2 duration-300">
+            <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-green-200 text-sm">Berhasil</h4>
-              <p className="text-xs text-green-400/90 mt-1">{dashboardSuccess}</p>
+              <h4 className="font-semibold text-teal-200 text-sm">Berhasil</h4>
+              <p className="text-xs text-teal-400/90 mt-1">{dashboardSuccess}</p>
             </div>
           </div>
         )}
@@ -343,7 +343,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('projects')}
             className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'projects' 
-                ? 'border-green-500 text-green-500' 
+                ? 'border-teal-500 text-teal-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -353,7 +353,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('certificates')}
             className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'certificates' 
-                ? 'border-green-500 text-green-500' 
+                ? 'border-teal-500 text-teal-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -363,7 +363,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('skills')}
             className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'skills' 
-                ? 'border-green-500 text-green-500' 
+                ? 'border-teal-500 text-teal-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -373,7 +373,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('profile')}
             className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'profile' 
-                ? 'border-green-500 text-green-500' 
+                ? 'border-teal-500 text-teal-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -383,7 +383,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('resume')}
             className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'resume' 
-                ? 'border-green-500 text-green-500' 
+                ? 'border-teal-500 text-teal-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -424,11 +424,11 @@ export default function AdminDashboard() {
                   )}
 
                   {formSuccess && (
-                    <div className="p-4 bg-green-950/20 border border-green-800/40 rounded-xl flex items-start gap-3 text-green-400">
-                      <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                    <div className="p-4 bg-teal-950/20 border border-teal-800/40 rounded-xl flex items-start gap-3 text-teal-400">
+                      <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold text-green-200 text-sm">Berhasil</h4>
-                        <p className="text-xs text-green-400/90 mt-1">{formSuccess}</p>
+                        <h4 className="font-semibold text-teal-200 text-sm">Berhasil</h4>
+                        <p className="text-xs text-teal-400/90 mt-1">{formSuccess}</p>
                       </div>
                     </div>
                   )}
@@ -442,7 +442,7 @@ export default function AdminDashboard() {
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                         required
                         placeholder="Nama platform atau aplikasi"
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors text-sm"
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors text-sm"
                       />
                     </div>
 
@@ -456,7 +456,7 @@ export default function AdminDashboard() {
                         onChange={(e) => setFormData({ ...formData, tech_stack: e.target.value })}
                         required
                         placeholder="Next.js, Tailwind CSS, PostgreSQL"
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors text-sm"
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors text-sm"
                       />
                     </div>
                   </div>
@@ -469,7 +469,7 @@ export default function AdminDashboard() {
                       required
                       rows={4}
                       placeholder="Jelaskan fitur utama, peran Anda, dan hasil pencapaian teknis proyek ini secara mendalam."
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors text-sm resize-none"
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors text-sm resize-none"
                     />
                   </div>
 
@@ -497,7 +497,7 @@ export default function AdminDashboard() {
                         value={formData.live_url}
                         onChange={(e) => setFormData({ ...formData, live_url: e.target.value })}
                         placeholder="https://example.com"
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors text-sm"
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors text-sm"
                       />
                     </div>
                     
@@ -508,7 +508,7 @@ export default function AdminDashboard() {
                         value={formData.github_url}
                         onChange={(e) => setFormData({ ...formData, github_url: e.target.value })}
                         placeholder="https://github.com/noval-abdillah/repo"
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors text-sm"
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-teal-500 transition-colors text-sm"
                       />
                     </div>
                   </div>
@@ -517,7 +517,7 @@ export default function AdminDashboard() {
                     <button
                       type="submit"
                       disabled={formLoading || uploading}
-                      className="flex-1 md:flex-initial px-8 py-3 bg-green-600 hover:bg-green-500 disabled:bg-green-600/40 text-zinc-950 font-bold rounded-lg transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer font-mono"
+                      className="flex-1 md:flex-initial px-8 py-3 bg-teal-600 hover:bg-teal-500 disabled:bg-teal-600/40 text-zinc-950 font-bold rounded-lg transition-colors flex items-center justify-center gap-2 text-sm cursor-pointer font-mono"
                     >
                       {(formLoading || uploading) && <SVGSpinner size={16} />}
                       <span>SIMPAN PROYEK</span>
@@ -575,7 +575,7 @@ export default function AdminDashboard() {
                       </div>
 
                       <div className="p-5 flex-1 flex flex-col">
-                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-green-500 transition-colors">{project.title}</h3>
+                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-teal-500 transition-colors">{project.title}</h3>
                         <p className="text-zinc-400 text-xs mb-4 line-clamp-3 leading-relaxed flex-1">{project.description}</p>
                         
                         <div className="flex flex-wrap gap-1.5 mb-5">
@@ -665,17 +665,17 @@ export default function AdminDashboard() {
                 )}
 
                 {resumeSuccess && (
-                  <div className="p-4 bg-green-950/20 border border-green-800/40 rounded-xl flex items-start gap-3 text-green-400 mb-6">
-                    <CheckIcon className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                  <div className="p-4 bg-teal-950/20 border border-teal-800/40 rounded-xl flex items-start gap-3 text-teal-400 mb-6">
+                    <CheckIcon className="w-5 h-5 text-teal-500 shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-green-200 text-sm">Berhasil</h4>
-                      <p className="text-xs text-green-400/90 mt-1">{resumeSuccess}</p>
+                      <h4 className="font-semibold text-teal-200 text-sm">Berhasil</h4>
+                      <p className="text-xs text-teal-400/90 mt-1">{resumeSuccess}</p>
                     </div>
                   </div>
                 )}
 
-                <div className="p-6 bg-zinc-950 border border-zinc-800 rounded-xl border-dashed hover:border-green-500/50 transition-colors mb-6 group flex flex-col items-center justify-center text-center">
-                  <UploadIcon className="w-10 h-10 text-zinc-600 mb-3 group-hover:text-green-500 transition-colors" />
+                <div className="p-6 bg-zinc-950 border border-zinc-800 rounded-xl border-dashed hover:border-teal-500/50 transition-colors mb-6 group flex flex-col items-center justify-center text-center">
+                  <UploadIcon className="w-10 h-10 text-zinc-600 mb-3 group-hover:text-teal-500 transition-colors" />
                   <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-3">Pilih PDF Resume</label>
                   <input
                     type="file"
@@ -684,7 +684,7 @@ export default function AdminDashboard() {
                     className="block w-full max-w-xs text-xs text-zinc-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-zinc-800 file:text-zinc-200 hover:file:bg-zinc-700 transition-colors cursor-pointer"
                   />
                   {resumeFile && (
-                    <p className="text-xs text-green-400 font-mono mt-3">Terpilih: {resumeFile.name} ({(resumeFile.size / 1024).toFixed(1)} KB)</p>
+                    <p className="text-xs text-teal-400 font-mono mt-3">Terpilih: {resumeFile.name} ({(resumeFile.size / 1024).toFixed(1)} KB)</p>
                   )}
                 </div>
               </div>
@@ -713,7 +713,7 @@ export default function AdminDashboard() {
                     }
                   }}
                   disabled={resumeUploading}
-                  className="w-full sm:w-auto px-6 py-3 bg-green-600 hover:bg-green-500 disabled:bg-green-600/40 text-zinc-950 font-bold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 cursor-pointer font-mono"
+                  className="w-full sm:w-auto px-6 py-3 bg-teal-600 hover:bg-teal-500 disabled:bg-teal-600/40 text-zinc-950 font-bold rounded-lg transition-colors text-sm flex items-center justify-center gap-2 cursor-pointer font-mono"
                 >
                   {resumeUploading && <SVGSpinner size={16} />}
                   <span>{resumeUploading ? 'MENGUNGGAH...' : 'UNGGAH RESUME PDF'}</span>
@@ -733,7 +733,7 @@ export default function AdminDashboard() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between rounded-xl bg-zinc-950 border border-zinc-850 p-4">
                     <span className="text-sm text-zinc-400 font-mono">Status Aktif</span>
-                    <span className={`px-3 py-1 rounded-full text-xs font-mono font-semibold ${currentResumeUrl ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'} border`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-mono font-semibold ${currentResumeUrl ? 'bg-teal-500/10 text-teal-400 border border-teal-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'} border`}>
                       {currentResumeUrl ? 'AKTIF' : 'TIDAK TERSEDIA'}
                     </span>
                   </div>
@@ -750,7 +750,7 @@ export default function AdminDashboard() {
                           href={currentResumeUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-colors text-xs cursor-pointer font-mono"
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-lg transition-colors text-xs cursor-pointer font-mono"
                         >
                           <ExternalLinkIcon className="w-3.5 h-3.5" />
                           <span>PREVIEW PDF</span>
