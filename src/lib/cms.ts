@@ -122,3 +122,103 @@ export async function getProfileImage(): Promise<string> {
     return fallback;
   }
 }
+
+export interface SiteStatItem {
+  value: number;
+  suffix: string;
+  decimals?: number;
+  label: string;
+  description: string;
+}
+
+export async function getLiveSiteStats(): Promise<SiteStatItem[]> {
+  const fallbackStats: SiteStatItem[] = [
+    {
+      value: 7,
+      suffix: '+',
+      label: 'PROYEK SELESAI',
+      description: 'SaaS, Fullstack Web, & Automation',
+    },
+    {
+      value: 99.9,
+      suffix: '%',
+      decimals: 1,
+      label: 'SYSTEM RELIABILITY',
+      description: 'Production uptime & optimal SLA',
+    },
+    {
+      value: 4,
+      suffix: 'VERIFIED',
+      label: 'SERTIFIKASI RESMI',
+      description: 'Google, Komdigi, Microsoft & HackerRank',
+    },
+    {
+      value: 120,
+      suffix: '+',
+      label: 'AI WORKFLOWS',
+      description: 'Copilot & n8n pipeline integration',
+    },
+  ];
+
+  try {
+    const supabase = createClient();
+    const [projRes, certRes] = await Promise.all([
+      supabase.from('projects').select('id', { count: 'exact' }),
+      supabase.from('certificates').select('issuer', { count: 'exact' }),
+    ]);
+
+    const projectCount = projRes.count ?? (projRes.data ? projRes.data.length : 7);
+    const certCount = certRes.count ?? (certRes.data ? certRes.data.length : 4);
+
+    let certIssuers = 'Google, Komdigi, Microsoft & HackerRank';
+    if (certRes.data && certRes.data.length > 0) {
+      const uniqueIssuers = Array.from(
+        new Set(
+          certRes.data
+            .map((c) => c.issuer)
+            .filter(Boolean)
+            .map((iss) => {
+              if (/google/i.test(iss)) return 'Google';
+              if (/komdigi|dta/i.test(iss)) return 'Komdigi';
+              if (/microsoft|copilot/i.test(iss)) return 'Microsoft';
+              if (/hackerrank/i.test(iss)) return 'HackerRank';
+              return iss;
+            })
+        )
+      );
+      if (uniqueIssuers.length > 0) {
+        certIssuers = uniqueIssuers.join(', ');
+      }
+    }
+
+    return [
+      {
+        value: projectCount,
+        suffix: '+',
+        label: 'PROYEK SELESAI',
+        description: 'SaaS, Fullstack Web, & Automation',
+      },
+      {
+        value: 99.9,
+        suffix: '%',
+        decimals: 1,
+        label: 'SYSTEM RELIABILITY',
+        description: 'Production uptime & optimal SLA',
+      },
+      {
+        value: certCount,
+        suffix: 'VERIFIED',
+        label: 'SERTIFIKASI RESMI',
+        description: certIssuers,
+      },
+      {
+        value: 120,
+        suffix: '+',
+        label: 'AI WORKFLOWS',
+        description: 'Copilot & n8n pipeline integration',
+      },
+    ];
+  } catch {
+    return fallbackStats;
+  }
+}

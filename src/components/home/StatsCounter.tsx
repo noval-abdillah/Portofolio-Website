@@ -1,23 +1,16 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SpotlightCard } from '@/components/ui';
+import { getLiveSiteStats, SiteStatItem } from '@/lib/cms';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface StatItem {
-  value: number;
-  suffix: string;
-  decimals?: number;
-  label: string;
-  description: string;
-}
-
-const STATS: StatItem[] = [
+const INITIAL_STATS: SiteStatItem[] = [
   {
-    value: 15,
+    value: 7,
     suffix: '+',
     label: 'PROYEK SELESAI',
     description: 'SaaS, Fullstack Web, & Automation',
@@ -31,7 +24,7 @@ const STATS: StatItem[] = [
   },
   {
     value: 4,
-    suffix: ' VERIFIED',
+    suffix: 'VERIFIED',
     label: 'SERTIFIKASI RESMI',
     description: 'Google, Komdigi, Microsoft & HackerRank',
   },
@@ -46,10 +39,25 @@ const STATS: StatItem[] = [
 export default function StatsCounter() {
   const containerRef = useRef<HTMLDivElement>(null);
   const numberRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const [stats, setStats] = useState<SiteStatItem[]>(INITIAL_STATS);
 
   useEffect(() => {
+    let active = true;
+    getLiveSiteStats().then((data) => {
+      if (active) {
+        setStats(data);
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
     const ctx = gsap.context(() => {
-      STATS.forEach((stat, i) => {
+      stats.forEach((stat, i) => {
         const el = numberRefs.current[i];
         if (!el) return;
 
@@ -75,13 +83,13 @@ export default function StatsCounter() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [stats]);
 
   return (
     <section ref={containerRef} className="py-12 sm:py-20 bg-zinc-950 border-y border-zinc-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-          {STATS.map((stat, i) => (
+          {stats.map((stat, i) => (
             <SpotlightCard
               key={stat.label}
               className="p-4 sm:p-6 md:p-8 text-center"
@@ -89,7 +97,17 @@ export default function StatsCounter() {
             >
               <div className="text-2xl sm:text-4xl md:text-5xl font-bold font-mono text-teal-400 mb-1.5 sm:mb-2 flex items-center justify-center tracking-tight">
                 <span ref={(el) => { numberRefs.current[i] = el; }}>0</span>
-                <span>{stat.suffix}</span>
+                {stat.suffix && (
+                  <span
+                    className={
+                      stat.suffix.includes('VERIFIED')
+                        ? 'ml-1.5 sm:ml-2 text-base sm:text-xl md:text-2xl font-bold text-teal-300 tracking-normal'
+                        : ''
+                    }
+                  >
+                    {stat.suffix}
+                  </span>
+                )}
               </div>
               <div className="text-[11px] sm:text-xs md:text-sm font-bold font-mono text-white tracking-wider mb-1 line-clamp-1">
                 {stat.label}
