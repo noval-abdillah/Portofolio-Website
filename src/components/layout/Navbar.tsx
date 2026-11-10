@@ -2,14 +2,17 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import { MenuIcon, CloseIcon, GitHubIcon, LinkedInIcon, EmailIcon } from '@/components/ui';
 import { useLanguage } from '@/context/LanguageContext';
+import { sound } from '@/lib/sound';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [audioActive, setAudioActive] = useState(false);
   const pathname = usePathname();
   const indicatorRef = useRef<HTMLDivElement>(null);
   const navLinksRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -62,8 +65,19 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-2xl font-bold font-mono text-green-500 hover:text-green-400 transition-colors">
-            NOVAL<span className="text-zinc-400">.</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-zinc-800 group-hover:border-teal-500/50 transition-colors shadow-[0_0_15px_rgba(20,184,166,0.2)]">
+              <Image
+                src="/icon.png"
+                alt="NA Monogram Logo"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
+            </div>
+            <span className="text-xl font-bold font-mono text-white group-hover:text-teal-400 transition-colors tracking-tight">
+              NOVAL<span className="text-teal-400">.</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -124,7 +138,7 @@ export default function Navbar() {
             <div className="ml-4 pl-4 border-l border-zinc-800 flex items-center space-x-2">
               <button 
                 onClick={() => setLanguage('en')}
-                className={`text-xs font-mono font-bold transition-colors ${language === 'en' ? 'text-green-500' : 'text-zinc-400 hover:text-zinc-200'}`}
+                className={`text-xs font-mono font-bold transition-colors ${language === 'en' ? 'text-teal-400' : 'text-zinc-400 hover:text-zinc-200'}`}
                 aria-label="Switch language to English"
               >
                 EN
@@ -132,12 +146,26 @@ export default function Navbar() {
               <span className="text-zinc-600">/</span>
               <button 
                 onClick={() => setLanguage('id')}
-                className={`text-xs font-mono font-bold transition-colors ${language === 'id' ? 'text-green-500' : 'text-zinc-400 hover:text-zinc-200'}`}
+                className={`text-xs font-mono font-bold transition-colors ${language === 'id' ? 'text-teal-400' : 'text-zinc-400 hover:text-zinc-200'}`}
                 aria-label="Ganti bahasa ke Indonesia"
               >
                 ID
               </button>
             </div>
+
+            {/* Futuristic Sound FX Toggle */}
+            <button
+              onClick={() => setAudioActive(sound.toggle())}
+              className={`p-1.5 rounded-lg border transition-all text-xs font-mono flex items-center gap-1 cursor-pointer ${
+                audioActive
+                  ? 'border-teal-500/60 bg-teal-500/10 text-teal-300 shadow-[0_0_12px_rgba(20,184,166,0.3)]'
+                  : 'border-zinc-800 bg-zinc-900/50 text-zinc-500 hover:text-zinc-300'
+              }`}
+              title={audioActive ? 'Matikan Suara SFX' : 'Nyalakan Suara SFX'}
+              aria-label="Toggle Sound FX"
+            >
+              {audioActive ? '🔊 SFX' : '🔇 SFX'}
+            </button>
             </div>
           </div>
 

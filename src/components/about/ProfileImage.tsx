@@ -1,14 +1,24 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useLanguage } from '@/context/LanguageContext';
+import { getProfileImage } from '@/lib/cms';
 
-export default function ProfileImage() {
+export default function ProfileImage({ imageSrc }: { imageSrc?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const [currentSrc, setCurrentSrc] = useState(imageSrc || '/images/Profil.jpeg');
+
+  useEffect(() => {
+    if (imageSrc) {
+      setCurrentSrc(imageSrc);
+    } else {
+      getProfileImage().then(setCurrentSrc);
+    }
+  }, [imageSrc]);
 
   // Efek interaktif 3D saat kursor digerakkan
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -70,7 +80,7 @@ export default function ProfileImage() {
         {/* Pembungkus Gambar dengan efek Depth (Z-axis) */}
         <div className="relative w-full h-full rounded-2xl overflow-hidden bg-zinc-800" style={{ transform: 'translateZ(40px)' }}>
           <Image 
-            src="/images/Profil.jpeg"
+            src={currentSrc}
             alt="Profil Noval Abdillah"
             fill
             priority

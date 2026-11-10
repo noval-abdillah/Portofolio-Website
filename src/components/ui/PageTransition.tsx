@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 
@@ -84,13 +85,22 @@ export default function PageTransition({ children }: PageTransitionProps) {
         }}
       >
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative">
-            {/* Animated Logo/Text */}
-            <div className="text-6xl font-bold font-mono text-green-500 animate-pulse">
-              NOVAL<span className="text-zinc-500">.</span>
+          <div className="relative flex flex-col items-center gap-4">
+            {/* Animated Logo/Monogram */}
+            <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-teal-500/40 shadow-[0_0_40px_rgba(20,184,166,0.4)] animate-pulse">
+              <Image
+                src="/icon.png"
+                alt="NA Monogram"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="text-4xl font-bold font-mono text-white tracking-widest">
+              NOVAL<span className="text-teal-400">.</span>
             </div>
             {/* Neon glow effect */}
-            <div className="absolute inset-0 blur-2xl opacity-50 bg-green-500/30"></div>
+            <div className="absolute inset-0 blur-3xl opacity-40 bg-teal-500/40 pointer-events-none" />
           </div>
         </div>
         

@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { DownloadIcon, CloseIcon } from '@/components/ui';
+import { DownloadIcon, CloseIcon, Magnetic, TextScramble, Marquee } from '@/components/ui';
 import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -113,12 +113,20 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
+        {/* Pulsing Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-mono mb-8 backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-ping" />
+          <span>AVAILABLE FOR NEW PROJECTS</span>
+        </div>
+
         <h1
           ref={headlineRef}
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-none flex flex-col items-center gap-2"
         >
-          <span>NOVAL ABDILLAH</span>
-          <span className="text-3xl md:text-5xl lg:text-6xl text-zinc-300">{t.hero.role}</span>
+          <TextScramble text="NOVAL ABDILLAH" speed={35} />
+          <span className="text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text text-transparent">
+            {t.hero.role}
+          </span>
         </h1>
 
         <p
@@ -129,20 +137,39 @@ export default function Hero() {
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/projects"
-            className="px-8 py-4 bg-green-600 hover:bg-green-500 text-zinc-950 font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
-          >
-            {t.hero.viewProjects}
-          </Link>
-          <button
-            onClick={() => setShowResume(true)}
-            className="px-8 py-4 border border-zinc-700 hover:border-green-500 text-zinc-300 hover:text-green-500 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2"
-          >
-            <DownloadIcon className="w-5 h-5" />
-            {t.hero.downloadResume}
-          </button>
+          <Magnetic strength={0.3}>
+            <Link
+              href="/projects"
+              className="inline-block px-8 py-4 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:shadow-[0_0_35px_rgba(34,197,94,0.6)]"
+            >
+              {t.hero.viewProjects}
+            </Link>
+          </Magnetic>
+          <Magnetic strength={0.3}>
+            <button
+              onClick={() => setShowResume(true)}
+              className="px-8 py-4 border border-zinc-700 hover:border-green-500/80 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-green-400 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
+            >
+              <DownloadIcon className="w-5 h-5" />
+              {t.hero.downloadResume}
+            </button>
+          </Magnetic>
         </div>
+      </div>
+
+      {/* Infinite Marquee at bottom of Hero */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <Marquee
+          items={[
+            'FULL-STACK ARCHITECT',
+            'AI-ASSISTED DEVELOPMENT',
+            'NEXT.JS 15 & REACT 19',
+            'SUPABASE & POSTGRESQL',
+            'THREE.JS & GSAP',
+            'PRODUCTION-READY SAAS',
+          ]}
+          speed={30}
+        />
       </div>
 
       {/* Resume Preview Modal */}

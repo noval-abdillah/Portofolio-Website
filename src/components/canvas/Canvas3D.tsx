@@ -1,17 +1,20 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { useRef, useEffect, useMemo } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { Stars, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Animated 3D shape that responds to mouse
-function AnimatedTechShape() {
+// 3D Monogram Medallion using the Teal NA Monogram icon
+function Monogram3D() {
   const groupRef = useRef<THREE.Group>(null);
-  const meshRef = useRef<THREE.Mesh>(null);
-  const wireframeRef = useRef<THREE.Mesh>(null);
-  const { viewport } = useThree();
+  const ringRef = useRef<THREE.Mesh>(null);
+  const outerRingRef = useRef<THREE.Mesh>(null);
   const mouse = useRef({ x: 0, y: 0 });
+
+  // Load the icon texture
+  const texture = useLoader(THREE.TextureLoader, '/icon.png');
+  texture.colorSpace = THREE.SRGBColorSpace;
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -23,89 +26,105 @@ function AnimatedTechShape() {
   }, []);
 
   useFrame(({ clock }) => {
-    if (!groupRef.current || !meshRef.current || !wireframeRef.current) return;
+    if (!groupRef.current) return;
     const t = clock.getElapsedTime();
-    
-    // Rotate the whole group
-    groupRef.current.rotation.y = t * 0.2;
-    groupRef.current.rotation.x = t * 0.1;
-    
-    // Rotate inner mesh in opposite direction
-    meshRef.current.rotation.y = -t * 0.1;
-    wireframeRef.current.rotation.y = -t * 0.1;
 
-    // Parallax from mouse
+    // Smooth subtle rotating swing
+    groupRef.current.rotation.y = Math.sin(t * 0.6) * 0.45 + mouse.current.x * 0.4;
+    groupRef.current.rotation.x = Math.cos(t * 0.5) * 0.15 - mouse.current.y * 0.3;
+
+    // Rings rotation
+    if (ringRef.current) {
+      ringRef.current.rotation.z = t * 0.4;
+      ringRef.current.rotation.x = t * 0.2;
+    }
+    if (outerRingRef.current) {
+      outerRingRef.current.rotation.z = -t * 0.25;
+      outerRingRef.current.rotation.y = t * 0.3;
+    }
+
+    // Parallax mouse follow
     groupRef.current.position.x = THREE.MathUtils.lerp(
       groupRef.current.position.x,
-      mouse.current.x * 0.8,
+      mouse.current.x * 0.6,
       0.05
     );
     groupRef.current.position.y = THREE.MathUtils.lerp(
       groupRef.current.position.y,
-      mouse.current.y * 0.5,
+      mouse.current.y * 0.35,
       0.05
     );
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={2}>
+    <Float speed={2.5} rotationIntensity={0.4} floatIntensity={1.8}>
       <group ref={groupRef}>
-        {/* Core Icosahedron */}
-        <mesh ref={meshRef}>
-          <icosahedronGeometry args={[1.2, 1]} />
-          <meshPhysicalMaterial
-            color="#22c55e"
-            metalness={0.5}
-            roughness={0.2}
-            clearcoat={1.0}
-            clearcoatRoughness={0.1}
-            emissive="#16a34a"
-            emissiveIntensity={0.5}
-            transparent
-            opacity={0.8}
-          />
-        </mesh>
-        
-        {/* Outer wireframe */}
-        <mesh ref={wireframeRef} scale={1.2}>
-          <icosahedronGeometry args={[1.2, 1]} />
-          <meshBasicMaterial
-            color="#4ade80"
-            wireframe
-            transparent
-            opacity={0.3}
-          />
-        </mesh>
-        
-        {/* Inner core */}
-        <mesh scale={0.5}>
-          <octahedronGeometry args={[1, 0]} />
+        {/* Core Monogram Disc */}
+        <mesh>
+          <cylinderGeometry args={[1.65, 1.65, 0.14, 64]} />
+          {/* Cylinder side material */}
           <meshStandardMaterial
-            color="#ffffff"
-            emissive="#ffffff"
-            emissiveIntensity={0.8}
+            attach="material-0"
+            color="#0d9488"
+            metalness={0.85}
+            roughness={0.2}
+            emissive="#14b8a6"
+            emissiveIntensity={0.35}
+          />
+          {/* Top/Front face with Monogram texture */}
+          <meshStandardMaterial
+            attach="material-1"
+            map={texture}
+            metalness={0.4}
+            roughness={0.25}
+            emissive="#0d9488"
+            emissiveIntensity={0.25}
+          />
+          {/* Bottom/Back face */}
+          <meshStandardMaterial
+            attach="material-2"
+            map={texture}
+            metalness={0.4}
+            roughness={0.25}
+            emissive="#0d9488"
+            emissiveIntensity={0.25}
           />
         </mesh>
+
+        {/* Inner Glowing Teal Ring */}
+        <mesh ref={ringRef}>
+          <torusGeometry args={[2.0, 0.02, 16, 100]} />
+          <meshBasicMaterial color="#2dd4bf" transparent opacity={0.65} />
+        </mesh>
+
+        {/* Outer Tech Orbit Ring with dashed feeling */}
+        <mesh ref={outerRingRef}>
+          <torusGeometry args={[2.3, 0.015, 16, 64]} />
+          <meshBasicMaterial color="#14b8a6" transparent opacity={0.4} wireframe />
+        </mesh>
+
+        {/* Backlight glow point attached to emblem */}
+        <pointLight color="#14b8a6" intensity={3} distance={5} />
       </group>
     </Float>
   );
 }
 
-const PARTICLE_COUNT = 400; // Dikurangi dari 1500 agar CPU overhead rendah
+// Optimized Teal Particle Atmosphere
+const PARTICLE_COUNT = 350;
 const PARTICLE_POSITIONS = new Float32Array(PARTICLE_COUNT * 3);
 for (let i = 0; i < PARTICLE_COUNT; i++) {
-  PARTICLE_POSITIONS[i * 3] = (Math.random() - 0.5) * 20;
-  PARTICLE_POSITIONS[i * 3 + 1] = (Math.random() - 0.5) * 20;
-  PARTICLE_POSITIONS[i * 3 + 2] = (Math.random() - 0.5) * 20;
+  PARTICLE_POSITIONS[i * 3] = (Math.random() - 0.5) * 18;
+  PARTICLE_POSITIONS[i * 3 + 1] = (Math.random() - 0.5) * 18;
+  PARTICLE_POSITIONS[i * 3 + 2] = (Math.random() - 0.5) * 18;
 }
 
-// Particle system
 function Particles() {
   const pointsRef = useRef<THREE.Points>(null);
 
   useFrame(({ clock }) => {
     if (!pointsRef.current) return;
-    pointsRef.current.rotation.y = clock.getElapsedTime() * 0.05;
+    pointsRef.current.rotation.y = clock.getElapsedTime() * 0.03;
   });
 
   return (
@@ -116,7 +135,13 @@ function Particles() {
           args={[PARTICLE_POSITIONS, 3]}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.04} color="#4ade80" transparent opacity={0.8} sizeAttenuation={true} />
+      <pointsMaterial
+        size={0.035}
+        color="#2dd4bf"
+        transparent
+        opacity={0.7}
+        sizeAttenuation={true}
+      />
     </points>
   );
 }
@@ -124,25 +149,26 @@ function Particles() {
 export default function Canvas3D() {
   return (
     <Canvas
-      camera={{ position: [0, 0, 6], fov: 60 }}
+      camera={{ position: [0, 0, 5.5], fov: 50 }}
       style={{ background: '#09090b' }}
+      gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.8} />
-      <pointLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#22c55e" />
-      <directionalLight position={[0, 5, 5]} intensity={1.5} color="#4ade80" />
+      <ambientLight intensity={0.9} />
+      <pointLight position={[10, 10, 10]} intensity={1.8} color="#ffffff" />
+      <pointLight position={[-10, -10, -10]} intensity={1.2} color="#14b8a6" />
+      <directionalLight position={[0, 4, 4]} intensity={1.5} color="#2dd4bf" />
 
-      <AnimatedTechShape />
+      <Monogram3D />
       <Particles />
 
       <Stars
-        radius={100}
-        depth={50}
-        count={800} // Dikurangi dari 5000 agar render loop sangat ringan
-        factor={4}
+        radius={80}
+        depth={40}
+        count={600}
+        factor={3.5}
         saturation={1}
         fade
-        speed={1}
+        speed={0.8}
       />
     </Canvas>
   );

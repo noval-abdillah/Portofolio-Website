@@ -13,36 +13,37 @@ interface SmoothScrollProps {
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
-  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // Disable smooth scroll on mobile devices to improve Performance score
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) return;
-
-    lenisRef.current = new Lenis({
-      lerp: 0.1,
+    // Inisialisasi Lenis dengan parameter fluid buttery-smooth
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
-    });
-    
-    // Expose lenis globally for page transitions
-    (window as unknown as { lenis: Lenis }).lenis = lenisRef.current;
-
-    // Sync Lenis with GSAP ScrollTrigger
-    lenisRef.current.on('scroll', () => {
-      ScrollTrigger.update();
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
     });
 
-    // RAF loop
-    const raf = (time: number) => {
-      lenisRef.current?.raf(time);
-      rafRef.current = requestAnimationFrame(raf);
+    lenisRef.current = lenis;
+
+    // Expose lenis globally for page transitions / programmatic scrolls
+    (window as unknown as { lenis: Lenis }).lenis = lenis;
+
+    // Sinkronisasi GSAP ScrollTrigger dengan Lenis scroll event
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // Gunakan ticker bawaan GSAP untuk drive RAF loop Lenis agar 100% tersinkronisasi
+    const updateGsap = (time: number) => {
+      lenis.raf(time * 1000);
     };
-    rafRef.current = requestAnimationFrame(raf);
+    gsap.ticker.add(updateGsap);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      lenisRef.current?.destroy();
+      gsap.ticker.remove(updateGsap);
+      lenis.destroy();
     };
   }, []);
 

@@ -78,6 +78,10 @@ export const metadata: Metadata = {
     google: 'ZxlIdxX1WALhtH4i3MVUI8BKJWsfpxZkIPCzuqbjur8',
     yandex: 'your-yandex-verification-code',
   },
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -128,7 +132,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
+    <html lang="en">
       <body
         className={`${inter.variable} ${mono.variable} font-sans bg-zinc-950 text-zinc-100`}
       >

@@ -11,6 +11,23 @@ export interface Project {
   created_at: string;
 }
 
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  image_url: string;
+  credential_url?: string;
+  display_order?: number;
+  created_at: string;
+}
+
+export interface Skill {
+  id: string;
+  name: string;
+  category: 'tech' | 'office';
+  created_at?: string;
+}
+
 export interface User {
   id: string;
   email: string;

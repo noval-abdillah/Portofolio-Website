@@ -2,8 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { GitHubIcon, LinkedInIcon, EmailIcon, InstagramIcon, CheckIcon } from '@/components/ui';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { GitHubIcon, LinkedInIcon, EmailIcon, InstagramIcon, CheckIcon, SpotlightCard, TextScramble, Magnetic } from '@/components/ui';
 import { useLanguage } from '@/context/LanguageContext';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,19 +24,29 @@ export default function Contact() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    gsap.fromTo(
-      titleRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    );
-
-    if (contentRef.current) {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
-        Array.from(contentRef.current.children),
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, delay: 0.2, ease: 'power3.out' }
+        titleRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: titleRef.current, start: 'top 85%', once: true },
+        }
       );
-    }
+
+      if (contentRef.current) {
+        gsap.fromTo(
+          Array.from(contentRef.current.children),
+          { y: 40, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+            scrollTrigger: { trigger: contentRef.current, start: 'top 80%', once: true },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -42,7 +55,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <h1 ref={titleRef} className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t.contact.title}
+              <TextScramble text={t.contact.title} speed={40} />
             </h1>
             <p className="text-zinc-300 text-lg leading-relaxed mb-8">
               {t.contact.subtitle}
@@ -109,7 +122,11 @@ export default function Contact() {
             </div>
           </div>
 
-          <div ref={contentRef} className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-xl shadow-black/50">
+          <SpotlightCard
+            ref={contentRef as unknown as React.Ref<HTMLDivElement>}
+            className="p-8 shadow-2xl shadow-green-950/20"
+            spotlightColor="rgba(34, 197, 94, 0.18)"
+          >
             <h3 className="text-2xl font-bold text-white mb-6">{t.contact.title}</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -119,7 +136,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="contact-name"
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
                   placeholder={t.contact.namePlaceholder}
                 />
               </div>
@@ -130,7 +147,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="contact-email"
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
                   placeholder={t.contact.emailPlaceholder}
                 />
               </div>
@@ -141,7 +158,7 @@ export default function Contact() {
                 <textarea
                   id="contact-message"
                   rows={4}
-                  className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-zinc-950/80 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors resize-none"
                   placeholder={t.contact.messagePlaceholder}
                 />
               </div>
@@ -151,15 +168,17 @@ export default function Contact() {
                   {t.contact.successTitle}
                 </div>
               ) : (
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-colors"
-                >
-                  {t.contact.sendMessage}
-                </button>
+                <Magnetic strength={0.2}>
+                  <button
+                    type="submit"
+                    className="w-full px-6 py-3 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] cursor-pointer"
+                  >
+                    {t.contact.sendMessage}
+                  </button>
+                </Magnetic>
               )}
             </form>
-          </div>
+          </SpotlightCard>
         </div>
       </div>
     </section>

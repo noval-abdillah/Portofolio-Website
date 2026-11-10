@@ -17,6 +17,9 @@ import {
 } from '@/components/ui';
 import { SVGSpinner } from '@/components/ui';
 import { useRouter } from 'next/navigation';
+import CertificatesManager from '@/components/admin/CertificatesManager';
+import SkillsManager from '@/components/admin/SkillsManager';
+import ProfilePhotoManager from '@/components/admin/ProfilePhotoManager';
 
 export default function AdminDashboard() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -24,7 +27,7 @@ export default function AdminDashboard() {
   const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [activeTab, setActiveTab] = useState<'projects' | 'resume'>('projects');
+  const [activeTab, setActiveTab] = useState<'projects' | 'certificates' | 'skills' | 'profile' | 'resume'>('projects');
   const [formLoading, setFormLoading] = useState(false);
   
   // Status and feedback messaging states
@@ -335,10 +338,10 @@ export default function AdminDashboard() {
         )}
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-zinc-900 mb-8 gap-6">
+        <div className="flex border-b border-zinc-900 mb-8 gap-2 sm:gap-6 overflow-x-auto">
           <button
             onClick={() => setActiveTab('projects')}
-            className={`pb-4 text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 cursor-pointer ${
+            className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'projects' 
                 ? 'border-green-500 text-green-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
@@ -347,8 +350,38 @@ export default function AdminDashboard() {
             PROYEK ({projects.length})
           </button>
           <button
+            onClick={() => setActiveTab('certificates')}
+            className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
+              activeTab === 'certificates' 
+                ? 'border-green-500 text-green-500' 
+                : 'border-transparent text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            SERTIFIKAT
+          </button>
+          <button
+            onClick={() => setActiveTab('skills')}
+            className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
+              activeTab === 'skills' 
+                ? 'border-green-500 text-green-500' 
+                : 'border-transparent text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            KEAHLIAN & TECH STACK
+          </button>
+          <button
+            onClick={() => setActiveTab('profile')}
+            className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
+              activeTab === 'profile' 
+                ? 'border-green-500 text-green-500' 
+                : 'border-transparent text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            FOTO PROFIL
+          </button>
+          <button
             onClick={() => setActiveTab('resume')}
-            className={`pb-4 text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 cursor-pointer ${
+            className={`pb-4 text-xs sm:text-sm md:text-base font-semibold font-mono tracking-wider transition-all border-b-2 px-1 whitespace-nowrap cursor-pointer ${
               activeTab === 'resume' 
                 ? 'border-green-500 text-green-500' 
                 : 'border-transparent text-zinc-400 hover:text-zinc-200'
@@ -603,6 +636,12 @@ export default function AdminDashboard() {
             </div>
           </div>
         )}
+
+        {activeTab === 'certificates' && <CertificatesManager />}
+
+        {activeTab === 'skills' && <SkillsManager />}
+
+        {activeTab === 'profile' && <ProfilePhotoManager />}
 
         {/* RESUME TAB CONTENT */}
         {activeTab === 'resume' && (

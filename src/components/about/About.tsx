@@ -3,9 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
-import { CheckIcon } from '@/components/ui';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CheckIcon, SpotlightCard, TextScramble } from '@/components/ui';
 import { ProfileImage } from '@/components/about';
 import { useLanguage } from '@/context/LanguageContext';
+import { getCertificates, getSkills, FALLBACK_CERTIFICATES, FALLBACK_TECH_SKILLS, FALLBACK_OFFICE_SKILLS } from '@/lib/cms';
+import { Certificate } from '@/types';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,6 +18,18 @@ export default function About() {
   const contentRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [selectedCert, setSelectedCert] = useState<{title: string; img: string} | null>(null);
+
+  const [certificates, setCertificates] = useState<Certificate[]>(FALLBACK_CERTIFICATES);
+  const [techSkills, setTechSkills] = useState<string[]>(FALLBACK_TECH_SKILLS);
+  const [officeSkills, setOfficeSkills] = useState<string[]>(FALLBACK_OFFICE_SKILLS);
+
+  useEffect(() => {
+    getCertificates().then(setCertificates);
+    getSkills().then((s) => {
+      setTechSkills(s.tech);
+      setOfficeSkills(s.office);
+    });
+  }, []);
 
   // Close certificate modal on Escape key press
   useEffect(() => {
@@ -27,27 +44,36 @@ export default function About() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // Standard GSAP animation on mount, without ScrollTrigger since this is a dedicated page
-    gsap.fromTo(
-      titleRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }
-    );
-
-    if (contentRef.current) {
+    const ctx = gsap.context(() => {
       gsap.fromTo(
-        Array.from(contentRef.current.children),
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.1, delay: 0.2, ease: 'power3.out' }
+        titleRef.current,
+        { y: 50, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: titleRef.current, start: 'top 85%', once: true },
+        }
       );
-    }
+
+      if (contentRef.current) {
+        gsap.fromTo(
+          Array.from(contentRef.current.children),
+          { y: 40, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: contentRef.current, start: 'top 80%', once: true },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section ref={sectionRef} className="py-24 bg-zinc-950 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
         <h1 ref={titleRef} className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">
-          {t.about.title}
+          <TextScramble text={t.about.title} speed={40} />
         </h1>
 
         <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 items-center">
@@ -68,105 +94,65 @@ export default function About() {
               {t.about.p2}
             </p>
 
-            <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-900/50 mt-8">
+            <SpotlightCard className="p-6 mt-8" spotlightColor="rgba(34, 197, 94, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.techStack}</h4>
               <div className="flex flex-wrap gap-2">
-                {['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL', 'Supabase', 'n8n Automation', 'Tailwind CSS', 'Three.js', 'GSAP', 'AI Prompting', 'REST API Integration'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-zinc-800 text-zinc-100 text-sm rounded-full">
+                {techSkills.map((tech) => (
+                  <span key={tech} className="px-3 py-1 bg-zinc-800/80 border border-zinc-700/50 text-zinc-100 text-sm rounded-full font-mono">
                     {tech}
                   </span>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
             
-            <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-900/50">
+            <SpotlightCard className="p-6" spotlightColor="rgba(34, 197, 94, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.officeTools}</h4>
               <div className="flex flex-wrap gap-2">
-                {['Microsoft Excel', 'Microsoft Word', 'Microsoft PowerPoint'].map((tool) => (
-                  <span key={tool} className="px-3 py-1 bg-zinc-800 text-zinc-100 text-sm rounded-full">
+                {officeSkills.map((tool) => (
+                  <span key={tool} className="px-3 py-1 bg-zinc-800/80 border border-zinc-700/50 text-zinc-100 text-sm rounded-full font-mono">
                     {tool}
                   </span>
                 ))}
               </div>
-            </div>
+            </SpotlightCard>
 
-            <div className="p-6 border border-zinc-800 rounded-lg bg-zinc-900/50">
+            <SpotlightCard className="p-6" spotlightColor="rgba(34, 197, 94, 0.12)">
               <h4 className="text-lg font-semibold text-white mb-4">{t.about.certifications}</h4>
               <ul className="space-y-4">
-                <li className="flex items-start justify-between gap-3">
-                  <div className="flex gap-3 items-start">
-                    <div className="mt-1 text-green-500">
-                      <CheckIcon className="w-5 h-5" />
+                {certificates.map((cert) => (
+                  <li key={cert.id} className="flex items-start justify-between gap-3">
+                    <div className="flex gap-3 items-start">
+                      <div className="mt-1 text-green-500">
+                        <CheckIcon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <span className="block text-white font-medium">{cert.title}</span>
+                        <span className="text-zinc-300 text-sm">{cert.issuer}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="block text-white font-medium">{t.about.dtaKomdigi}</span>
-                      <span className="text-zinc-300 text-sm">Digital Talent Academy (KOMDIGI)</span>
+                    <div className="flex items-center gap-2">
+                      {cert.credential_url && (
+                        <a
+                          href={cert.credential_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-2.5 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-md transition-colors whitespace-nowrap"
+                        >
+                          Verify
+                        </a>
+                      )}
+                      <button 
+                        onClick={() => setSelectedCert({ title: cert.title, img: cert.image_url })}
+                        className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap cursor-pointer"
+                        aria-label={`Preview ${cert.title} certificate`}
+                      >
+                        {t.about.previewCert}
+                      </button>
                     </div>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedCert({ title: t.about.dtaKomdigi, img: '/cert-dta-komdigi.png' })}
-                    className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
-                    aria-label={`Preview ${t.about.dtaKomdigi} certificate`}
-                  >
-                    {t.about.previewCert}
-                  </button>
-                </li>
-                <li className="flex items-start justify-between gap-3">
-                  <div className="flex gap-3 items-start">
-                    <div className="mt-1 text-green-500">
-                      <CheckIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <span className="block text-white font-medium">{t.about.googleAi}</span>
-                      <span className="text-zinc-300 text-sm">Google (via Coursera)</span>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedCert({ title: t.about.googleAi, img: '/cert-google-ai.png' })}
-                    className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
-                    aria-label={`Preview ${t.about.googleAi} certificate`}
-                  >
-                    {t.about.previewCert}
-                  </button>
-                </li>
-                <li className="flex items-start justify-between gap-3">
-                  <div className="flex gap-3 items-start">
-                    <div className="mt-1 text-green-500">
-                      <CheckIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <span className="block text-white font-medium">{t.about.aiAssisted}</span>
-                      <span className="text-zinc-300 text-sm">GitHub Copilot (Microsoft Applied Skills)</span>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedCert({ title: t.about.aiAssisted, img: '/cert-github.png' })}
-                    className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
-                    aria-label={`Preview ${t.about.aiAssisted} certificate`}
-                  >
-                    {t.about.previewCert}
-                  </button>
-                </li>
-                <li className="flex items-start justify-between gap-3">
-                  <div className="flex gap-3 items-start">
-                    <div className="mt-1 text-green-500">
-                      <CheckIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <span className="block text-white font-medium">{t.about.problemSolving}</span>
-                      <span className="text-zinc-300 text-sm">HackerRank</span>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setSelectedCert({ title: t.about.problemSolving, img: '/cert-hackerrank.png' })}
-                    className="px-3 py-1 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-white rounded-md transition-colors whitespace-nowrap"
-                    aria-label={`Preview ${t.about.problemSolving} certificate`}
-                  >
-                    {t.about.previewCert}
-                  </button>
-                </li>
+                  </li>
+                ))}
               </ul>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
       </div>
