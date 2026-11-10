@@ -85,8 +85,9 @@ export default function Navbar() {
             <div className="relative flex items-center space-x-8">
               {navLinks.map((link, index) => (
                 <Link
-                  key={link.href} // Use href as key instead of name because name changes with lang
+                  key={link.href}
                   href={link.href}
+                  prefetch={true}
                   ref={(el) => { navLinksRef.current[index] = el; }}
                   className={`text-sm font-mono transition-colors uppercase tracking-wider ${
                     pathname === link.href 
@@ -187,6 +188,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={true}
                 onClick={() => setIsMenuOpen(false)}
                 className={`block text-sm font-mono transition-colors uppercase tracking-wider ${
                   pathname === link.href 

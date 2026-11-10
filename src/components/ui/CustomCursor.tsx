@@ -67,19 +67,22 @@ export default function CustomCursor({ children }: CustomCursorProps) {
     // Use passive listener where possible or normal mousemove
     window.addEventListener('mousemove', onMove, { passive: true });
 
-    const interactives = document.querySelectorAll('a, button, input, textarea, [data-cursor]');
-    interactives.forEach((el) => {
-      el.addEventListener('mouseenter', onEnter, { passive: true });
-      el.addEventListener('mouseleave', onLeave, { passive: true });
-    });
+    // Event delegation: satu listener global di window daripada ribuan di setiap elemen
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest('a, button, input, textarea, [data-cursor]');
+      if (target) {
+        onEnter();
+      } else {
+        onLeave();
+      }
+    };
+
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', handleMouseOver);
       if (frameId) cancelAnimationFrame(frameId);
-      interactives.forEach((el) => {
-        el.removeEventListener('mouseenter', onEnter);
-        el.removeEventListener('mouseleave', onLeave);
-      });
     };
   }, [isDesktop]);
 
@@ -93,11 +96,13 @@ export default function CustomCursor({ children }: CustomCursorProps) {
       {/* Dot */}
       <div
         ref={dotRef}
+        style={{ willChange: 'transform' }}
         className="fixed top-0 left-0 w-2 h-2 bg-teal-400 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
       />
       {/* Ring */}
       <div
         ref={ringRef}
+        style={{ willChange: 'transform' }}
         className="fixed top-0 left-0 w-8 h-8 border border-teal-500/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2"
       />
       {children}

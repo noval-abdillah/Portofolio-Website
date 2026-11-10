@@ -25,22 +25,22 @@ export default function Footer() {
             <p className="text-white font-semibold mb-4">{t.footer.quickLinks}</p>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-zinc-300 hover:text-teal-500 transition-colors">
+                <Link href="/" prefetch={true} className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.home}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-zinc-300 hover:text-teal-500 transition-colors">
+                <Link href="/about" prefetch={true} className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-zinc-300 hover:text-teal-500 transition-colors">
+                <Link href="/projects" prefetch={true} className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.projects}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-zinc-300 hover:text-teal-500 transition-colors">
+                <Link href="/contact" prefetch={true} className="text-zinc-300 hover:text-teal-500 transition-colors">
                   {t.nav.contact}
                 </Link>
               </li>
