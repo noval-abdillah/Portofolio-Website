@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, Suspense } from 'react';
+import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import gsap from 'gsap';
@@ -38,8 +39,13 @@ export default function Hero() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [showResume, setShowResume] = useState(false);
+  const [mounted, setMounted] = useState(false);
   
   const resumeUrl = '/resume/CV_Noval_AbdillahEN.pdf';
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -172,57 +178,70 @@ export default function Hero() {
         />
       </div>
 
-      {/* Resume Preview Modal */}
-      {showResume && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4 md:p-6 animate-in fade-in duration-300">
-          <div className="relative w-full max-w-5xl h-[85vh] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+      {/* Resume Preview Modal (Portaled to document.body) */}
+      {showResume && mounted && typeof document !== 'undefined' && createPortal(
+        <div className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/85 backdrop-blur-md p-4 md:p-6 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-5xl h-[88vh] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col z-10">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-xl">
-              <h3 className="text-xl font-bold text-white tracking-tight">Curriculum Vitae</h3>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-zinc-900/90 backdrop-blur-xl shrink-0">
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-teal-400" />
+                <h3 className="text-lg md:text-xl font-bold text-white tracking-tight font-mono">
+                  Curriculum Vitae <span className="text-zinc-500 text-xs font-normal">/ Noval Abdillah</span>
+                </h3>
+              </div>
               <button
                 onClick={() => setShowResume(false)}
-                className="p-2 hover:bg-zinc-800 rounded-full transition-colors group"
+                className="p-2 hover:bg-zinc-800 rounded-full transition-colors text-zinc-400 hover:text-white cursor-pointer"
                 aria-label="Close modal"
               >
-                <CloseIcon className="w-6 h-6 text-zinc-400 group-hover:text-white" />
+                <CloseIcon className="w-6 h-6" />
               </button>
             </div>
 
             {/* PDF Viewer */}
             <div className="flex-1 bg-zinc-950 overflow-hidden relative">
               <iframe
-                src={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=1`}
+                src={`${resumeUrl}#toolbar=1&navpanes=0&scrollbar=1`}
                 className="w-full h-full border-none"
                 title="Resume Preview"
               />
             </div>
 
             {/* Modal Footer */}
-            <div className="px-6 py-4 border-t border-zinc-800 bg-zinc-900/50 flex items-center justify-end gap-4">
-              <p className="text-xs text-zinc-500 mr-auto font-mono uppercase tracking-widest hidden sm:block">
-                Noval Abdillah Portfolio
-              </p>
-              <button
-                onClick={() => setShowResume(false)}
-                className="px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all text-sm font-semibold"
-              >
-                Tutup
-              </button>
+            <div className="px-6 py-4 border-t border-zinc-800 bg-zinc-900/90 flex items-center justify-between gap-4 shrink-0">
               <a
                 href={resumeUrl}
-                download
-                className="px-6 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-all text-sm font-semibold shadow-[0_0_15px_rgba(20,184,166,0.3)]"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-teal-400 hover:underline font-mono hidden sm:inline-block"
               >
-                Download PDF
+                Buka di tab baru ↗
               </a>
+              <div className="flex items-center gap-3 ml-auto">
+                <button
+                  onClick={() => setShowResume(false)}
+                  className="px-5 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all text-xs md:text-sm font-semibold cursor-pointer"
+                >
+                  Tutup
+                </button>
+                <a
+                  href={resumeUrl}
+                  download="CV_Noval_Abdillah.pdf"
+                  className="px-5 py-2 bg-teal-500 hover:bg-teal-400 text-zinc-950 rounded-lg transition-all text-xs md:text-sm font-bold shadow-[0_0_15px_rgba(20,184,166,0.3)] cursor-pointer"
+                >
+                  Download PDF
+                </a>
+              </div>
             </div>
           </div>
           {/* Backdrop Close Trigger */}
           <div 
-            className="absolute inset-0 -z-10" 
+            className="absolute inset-0" 
             onClick={() => setShowResume(false)} 
           />
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Scroll indicator */}

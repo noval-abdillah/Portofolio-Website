@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -157,27 +158,27 @@ export default function About() {
         </div>
       </div>
 
-      {/* Certificate Preview Modal */}
-      {selectedCert && (
+      {/* Certificate Preview Modal (Portaled) */}
+      {selectedCert && typeof document !== 'undefined' && createPortal(
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
           onClick={() => setSelectedCert(null)}
         >
           <div 
-            className="relative w-full max-w-3xl bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-2xl"
+            className="relative w-full max-w-3xl bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-zinc-800">
-              <h3 className="text-lg font-semibold text-white">{selectedCert.title}</h3>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800">
+              <h3 className="text-lg font-semibold text-white font-mono">{selectedCert.title}</h3>
               <button 
                 onClick={() => setSelectedCert(null)}
-                className="text-zinc-400 hover:text-white transition-colors p-1"
+                className="text-zinc-400 hover:text-white transition-colors p-1 cursor-pointer"
               >
                 ✕
               </button>
             </div>
             <div className="p-4 flex items-center justify-center bg-zinc-950 min-h-[300px] sm:min-h-[400px] relative">
-              <div className="relative w-full aspect-[4/3] bg-zinc-800 flex items-center justify-center rounded border border-zinc-700 overflow-hidden">
+              <div className="relative w-full aspect-[4/3] bg-zinc-800 flex items-center justify-center rounded-xl border border-zinc-700 overflow-hidden">
                 <Image 
                   src={selectedCert.img} 
                   alt={selectedCert.title}
@@ -189,7 +190,8 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
