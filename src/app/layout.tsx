@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
-  description: 'Portfolio of Noval Abdillah, a Full Stack Developer specializing in building production-grade SaaS applications with Next.js, Node.js, and PostgreSQL. Expert in AI-assisted development using GitHub Copilot.',
+  title: 'Noval Abdillah | Fullstack Developer & AI Engineer',
+  description: 'Portfolio of Noval Abdillah, a Full Stack Developer specializing in building production-grade SaaS applications with Next.js, TypeScript, Node.js, and PostgreSQL. Expert in AI-assisted development using GitHub Copilot.',
   keywords: [
     'Full Stack Developer',
     'SaaS Engineer',
@@ -56,30 +56,35 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://novalabdillah.online',
-    title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
+    title: 'Noval Abdillah | Fullstack Developer & AI Engineer',
     description: 'Building production-grade SaaS applications with modern technologies',
     siteName: 'Noval Abdillah Portfolio',
     images: [
       {
-        url: 'https://novalabdillah.online/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Noval Abdillah Portfolio',
+        url: 'https://novalabdillah.online/icon.png',
+        width: 512,
+        height: 512,
+        alt: 'Noval Abdillah NA Monogram Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Noval Abdillah | Fullstack Developer & AI Coder Assisten',
+    title: 'Noval Abdillah | Fullstack Developer & AI Engineer',
     description: 'Building production-grade SaaS applications with modern technologies',
     creator: '@novalabdillah',
+    images: ['https://novalabdillah.online/icon.png'],
   },
   verification: {
     google: 'ZxlIdxX1WALhtH4i3MVUI8BKJWsfpxZkIPCzuqbjur8',
     yandex: 'your-yandex-verification-code',
   },
   icons: {
-    icon: '/icon.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/icon.png',
   },
 };
@@ -99,7 +104,7 @@ export default function RootLayout({
         '@id': 'https://novalabdillah.online/#organization',
         'name': 'Noval Abdillah',
         'url': 'https://novalabdillah.online',
-        'logo': 'https://novalabdillah.online/favicon.ico',
+        'logo': 'https://novalabdillah.online/icon.png',
         'sameAs': [
           'https://github.com/noval-abdillah',
           'https://www.linkedin.com/in/noval-abdillah-415589316/'
