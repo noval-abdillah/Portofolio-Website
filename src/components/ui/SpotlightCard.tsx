@@ -19,12 +19,17 @@ const SpotlightCard = forwardRef<HTMLDivElement, SpotlightCardProps>(function Sp
   const [opacity, setOpacity] = useState(0);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    // Abaikan kalkulasi spotlight di layar sentuh untuk menjaga 60-120fps scrolling
+    if (window.matchMedia('(pointer: coarse)').matches) return;
     if (!divRef.current) return;
     const rect = divRef.current.getBoundingClientRect();
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const handleMouseEnter = () => setOpacity(1);
+  const handleMouseEnter = () => {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    setOpacity(1);
+  };
   const handleMouseLeave = () => setOpacity(0);
 
   return (

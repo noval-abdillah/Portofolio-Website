@@ -92,12 +92,12 @@ export default function ProjectsClient({ projects, limit }: { projects: Project[
 
           {/* Category Filter Tabs */}
           {!limit && (
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            <div className="flex flex-wrap sm:flex-nowrap sm:overflow-x-auto items-center justify-center sm:justify-start md:justify-center gap-1.5 sm:gap-2 mt-8 px-2 max-w-full">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => handleFilterClick(cat)}
-                  className={`px-4 py-2 rounded-lg text-xs font-mono tracking-wider transition-all cursor-pointer ${
+                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-mono tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                     activeCategory === cat
                       ? 'bg-teal-500 text-zinc-950 font-bold shadow-[0_0_20px_rgba(20,184,166,0.35)]'
                       : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700'

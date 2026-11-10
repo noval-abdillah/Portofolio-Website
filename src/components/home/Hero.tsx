@@ -109,9 +109,17 @@ export default function Hero() {
 
   return (
     <section id="home" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        {loadCanvas && <Canvas3D />}
+      {/* 3D Background on Desktop / Lightweight Hologram on Mobile */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        {loadCanvas ? (
+          <Canvas3D />
+        ) : (
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 opacity-40 animate-pulse pointer-events-none">
+            <div className="absolute inset-0 rounded-full bg-teal-500/20 blur-3xl" />
+            <div className="absolute inset-4 rounded-full border border-teal-500/30 animate-spin" style={{ animationDuration: '20s' }} />
+            <div className="absolute inset-10 rounded-full border border-teal-400/20 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }} />
+          </div>
+        )}
       </div>
 
       {/* Gradient overlay */}
@@ -127,26 +135,26 @@ export default function Hero() {
 
         <h1
           ref={headlineRef}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-none flex flex-col items-center gap-2"
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-none flex flex-col items-center gap-2"
         >
           <TextScramble text="NOVAL ABDILLAH" speed={35} />
-          <span className="text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text text-transparent">
+          <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text text-transparent">
             {t.hero.role}
           </span>
         </h1>
 
         <p
           ref={subtitleRef}
-          className="text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto mb-10 leading-relaxed font-mono"
+          className="text-base sm:text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed font-mono px-2"
         >
           {t.hero.subtitle}
         </p>
 
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none mx-auto">
           <Magnetic strength={0.3}>
             <Link
               href="/projects"
-              className="inline-block px-8 py-4 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_25px_rgba(20,184,166,0.4)] hover:shadow-[0_0_35px_rgba(20,184,166,0.6)]"
+              className="w-full sm:w-auto inline-block px-8 py-3.5 sm:py-4 bg-teal-500 hover:bg-teal-400 text-zinc-950 font-bold rounded-lg transition-all duration-300 shadow-[0_0_25px_rgba(20,184,166,0.4)] text-center text-sm sm:text-base"
             >
               {t.hero.viewProjects}
             </Link>
@@ -154,7 +162,7 @@ export default function Hero() {
           <Magnetic strength={0.3}>
             <button
               onClick={() => setShowResume(true)}
-              className="px-8 py-4 border border-zinc-700 hover:border-teal-500/80 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-teal-400 font-semibold rounded-lg transition-all duration-300 flex items-center gap-2 backdrop-blur-sm"
+              className="w-full sm:w-auto px-8 py-3.5 sm:py-4 border border-zinc-700 hover:border-teal-500/80 bg-zinc-900/60 text-zinc-300 hover:text-teal-400 font-semibold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm text-sm sm:text-base cursor-pointer"
             >
               <DownloadIcon className="w-5 h-5" />
               {t.hero.downloadResume}

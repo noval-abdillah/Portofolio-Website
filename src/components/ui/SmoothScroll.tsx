@@ -15,9 +15,16 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Inisialisasi Lenis dengan parameter fluid buttery-smooth
+    // Pada mobile / touch devices (iPhone, iPad, Android), matikan virtual scroll Lenis
+    // agar memanfaatkan 120Hz native hardware kinetic scroll iOS/Android tanpa delay
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768;
+    if (isTouch) {
+      return;
+    }
+
+    // Inisialisasi Lenis hanya untuk Desktop / Mouse Wheels
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
