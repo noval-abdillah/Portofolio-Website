@@ -3,7 +3,7 @@
 [![Next.js Version](https://img.shields.io/badge/Next.js-16.2.6-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React Version](https://img.shields.io/badge/React-19.0.0-blue?style=flat-square&logo=react)](https://react.dev/)
 [![Supabase](https://img.shields.io/badge/Supabase-BaaS-emerald?style=flat-square&logo=supabase)](https://supabase.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary%20%2F%20All%20Rights%20Reserved-red.svg?style=flat-square)](#-lisensi)
 
 Website portofolio interaktif milik **Noval Abdillah** — Full-Stack Developer & AI/n8n Workflow Automation Specialist dari Bekasi Utara, Jawa Barat.
 
@@ -155,4 +155,18 @@ Buka `http://localhost:3000`.
 
 ---
 
-**© 2026 Noval Abdillah.** Semua Hak Cipta Dilindungi.
+## 📄 Lisensi
+
+Kode sumber, desain UI/UX, branding (Monogram NA), komponen animasi, dan seluruh aset portofolio ini berada di bawah **Lisensi Hak Cipta Tertutup (Proprietary / All Rights Reserved)**.
+
+**Dilarang keras**:
+- Menggandakan, meng-clone, atau mendistribusikan ulang kode ini sebagai template portofolio pribadi/komersial.
+- Mengambil atau memakai desain, monogram, dan konten tanpa izin tertulis dari pemilik hak cipta.
+
+Pelanggaran hak cipta dapat dilaporkan melalui DMCA notice dan tindakan hukum terkait undang-undang kekayaan intelektual (HAKI).
+
+Lihat file [`LICENSE`](./LICENSE) untuk rincian lengkap.
+
+---
+
+**© 2026 Noval Abdillah.** Semua Hak Cipta Dilindungi (All Rights Reserved).
