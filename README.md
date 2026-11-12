@@ -36,14 +36,6 @@ Dibangun dengan **Next.js 16 (App Router)**, **Tailwind CSS**, **Supabase**, ani
 
 ---
 
-## 🚀 Instalasi Lokal
-
-### 1. Clone repositori
-```bash
-git clone https://github.com/noval-abdillah/Portofolio-Website.git
-cd Portofolio-Website
-```
-
 ### 2. Install dependensi
 ```bash
 npm install
